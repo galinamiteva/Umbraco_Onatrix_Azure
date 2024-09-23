@@ -1,0 +1,286 @@
+
+
+#tina {
+    .container {
+        @include desktop {
+            padding-top: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+        }
+
+        .tina-image {
+            width: 100%;
+            flex: 1;
+            padding: 2rem;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+
+            h5 {
+                font-weight: 400;
+                font-style: oblique;
+                margin-top: 1rem;
+            }
+        }
+
+        .tina-text {
+            flex: 2;
+            padding: 2rem;
+
+            h4 {
+                font-weight: 400;
+                font-style: oblique;
+            }
+
+            h6 {
+                font-weight: 400;
+                color: var(--color-primary);
+                line-height: 2;
+            }
+        }
+    }
+}
+
+#kevin {
+    position: relative;
+    height: 500px;
+
+    .container {
+        @include desktop {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+        }
+
+        .content {
+            margin-top: 3rem;
+
+
+            @include desktop {
+                width: 50%;
+                padding-right: 9rem;
+            }
+
+            .kevin-text {
+
+                h5 {
+                    font-weight: 400;
+                    font-style: oblique;
+                    margin-top: 1rem;
+                    opacity: 0.7;
+                }
+
+                .star-rating {
+                    margin-top: 1rem;
+                    margin-bottom: 1rem;
+                }
+
+                p {
+                    padding: 0;
+                }
+
+                .swedbank {
+                    margin-top: 0;
+                    opacity: 1;
+                }
+            }
+        }
+
+        .kevin-image {
+            display: none;
+
+            @include desktop {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 660px;
+
+                img {
+                    // width: 100%;
+                    // height: auto;
+                    height: 500px;
+                }
+            }
+        }
+    }
+}
+
+#our-experts {
+    .container {
+        .headline {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+            margin-top: 5rem;
+
+            h2 {
+                max-width: 550px;
+            }
+        }
+
+        .content-expert {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            margin-top: 1rem;
+            gap: 2rem;
+
+            .image {
+                width: 100%;
+                height: auto;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            h4 {
+                margin-top: 1rem;
+                margin-bottom: 0;
+            }
+
+            p {
+                margin-top: 0rem;
+                opacity: 0.7;
+            }
+
+            @include tablet {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @include desktop {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .content-more-expert {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            margin-top: 3rem;
+            gap: 2rem;
+
+            .image {
+                width: 100%;
+                height: auto;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            h5 {
+                margin-top: 1rem;
+                margin-bottom: 0;
+            }
+
+            p {
+                margin-top: 0rem;
+                opacity: 0.7;
+            }
+
+            @include tablet {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @include desktop {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    }
+}
+
+#next-project {
+    .container {
+        position: relative;
+
+        @include desktop {
+            padding-top: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 600px;
+            gap: 10rem;
+        }
+
+        .images {
+            display: none;
+
+            @include desktop {
+                display: block;
+            }
+
+            flex: 1;
+
+            .image-human {
+                position: absolute;
+                bottom: 0;
+                left: 100px;
+                z-index: 3;
+                width: 400px;
+                height: auto;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            .image-background {
+                position: absolute;
+                bottom: 0;
+                left: 100px;
+                z-index: 2;
+                width: 500px;
+                height: auto;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            .image-dot {
+                position: absolute;
+                bottom: 0;
+                left: 360px;
+                z-index: 1;
+                width: 180px;
+                height: auto;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+
+        .text {
+            flex: 1;
+
+            h2 {
+
+                @include desktop {
+                    margin-right: 11rem;
+                }
+            }
+
+            h5 {
+                i {
+                    color: var(--color-secondary);
+                    padding-right: 0.5rem;
+                }
+            }
+
+            p {
+                margin-top: 1rem;
+                margin-left: 1.8rem;
+            }
+        }
+    }
+}

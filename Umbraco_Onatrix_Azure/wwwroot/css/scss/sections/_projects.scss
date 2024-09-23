@@ -1,0 +1,241 @@
+#projects {
+    padding-top: 3rem;
+
+    .container {
+
+        @include desktop {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 1rem;
+        }
+
+
+        .our-projects {
+            grid-column: span 7;
+
+            a {
+                text-decoration: none;
+                padding-bottom: 2rem;
+                padding-top: 2rem;
+                border-bottom: 1px solid var(--color-note);
+
+                @include desktop {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 2rem;
+                }
+                &:hover .image img {
+                    transform: translateY(-3px) rotate(-2deg); 
+                    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); 
+                }
+
+
+                .image {
+                    position: relative;
+                    width: 100%;
+                    padding-bottom: 56.25%;
+                    background-color: #f0f0f0;
+
+                    img {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        transition: transform 0.1s ease, box-shadow 0.1s ease; // Smooth transition
+                    }
+                }
+
+                .project-text {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    .text {
+                        .date {
+                            color: var(--color-note);
+                        }
+
+                        p {
+                            color: var(--color-primary);
+                        }
+                    }
+
+                    .button {
+                        .btn-light {
+                            padding-left: 0;
+
+                            i {
+                                color: var(--color-secondary);
+                                margin-left: 0.5rem;
+                            }
+                        }
+                    }
+                }
+            }
+
+
+
+            .last-box {
+                border-bottom: none;
+            }
+
+            .pagnaition {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 3rem;
+
+                a {
+                    display: inline;
+                    text-decoration: none;
+                    font-weight: 600;
+                    color: var(--color-primary);
+                    background-color: var(--color-light);
+                    padding: 0.5rem 1rem;
+                    border: 1px solid var(--color-note);
+                    border-radius: 999px;
+                    transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+                    &:hover {
+                        transform: translateY(-3px);
+                        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+                    }
+                }
+
+                .prev {
+                    border: none;
+                    color: var(--color-note);
+                }
+
+                .two {
+                    border: none;
+                }
+
+                .next {
+                    border: none;
+                }
+            }
+        }
+
+        .nav-content {
+            grid-column: span 3;
+            border-left: 1px solid var(--color-note);
+            padding-left: 1rem;
+            margin-bottom: 8rem;
+            margin-top: 2rem;
+
+            .tags {
+
+
+                .tag {
+                    display: inline-block;
+                    padding: 8px 16px;
+                    margin: 4px;
+                    background-color: var(--color-light);
+                    color: #333;
+                    text-decoration: none;
+                    border-radius: 999px;
+                    border: 1px solid var(--color-note);
+                    transition: background-color 0.3s, color 0.3s;
+                }
+
+                .tag:hover {
+                    background-color: var(--color-primary);
+                    color: var(--color-light)
+                }
+            }
+
+            .we-help-form, .bg-primary {
+                position: relative;
+                z-index: 1;
+                padding: 2rem;
+                margin-top: 2rem;
+
+                h4 {
+                    color: var(--color-secondary);
+                }
+
+                .success-message {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #5cb85c;
+                    color: var(--color-light);
+                    font-size: 1rem;
+                    font-weight: 400;
+                    text-align: center;
+                    margin-bottom: 1rem;
+                    padding: 0.5rem;
+                    border-radius: 3px;
+                    font-size: 0.7rem;
+                }
+
+                .form {
+                    form {
+
+                        .form-input-group {
+                            display: flex;
+                            flex-direction: column;
+
+
+                            input, select, textarea {
+                                width: 100%;
+                                margin-bottom: 0.5rem;
+                                height: 52px;
+                                font-family: 'Poppins', sans-serif;
+                                font-size: 1rem;
+                                padding: 0.5rem;
+                                font-style: oblique;
+                                border: 1px solid var(--color-note);
+                                border-radius: 5px;
+                            }
+
+                            .form-input-error {
+                                color: red;
+                                font-size: 0.8rem;
+                                margin-top: 0.5rem;
+                                display: none;
+                            }
+
+                            .form-invalid-input {
+                                display: block;
+                            }
+
+                            .form-valid-input {
+                                display: none;
+                            }
+                        }
+
+                        .btn-we-help {
+                            position: absolute;
+                            bottom: 2.65rem;
+                            right: 3rem;
+                            background-color: transparent;
+                            border: none;
+                            font-size: 1.8rem;
+                            color: var(--color-note);
+                            z-index: 1;
+                            font-weight: 600;
+                            font-family: 'Poppins', sans-serif;
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+
+
+                .image {
+                    width: 50%;
+                    height: auto;
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    z-index: -1;
+                }
+            }
+        }
+    }
+}

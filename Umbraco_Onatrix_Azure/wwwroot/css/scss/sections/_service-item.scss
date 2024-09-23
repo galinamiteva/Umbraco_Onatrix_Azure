@@ -1,0 +1,154 @@
+#solution-item {
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .content {
+            margin-top: 5rem;
+
+            @include desktop {
+                display: flex;
+                justify-content: center;
+                align-items: start;
+                gap: 3rem;
+            }
+
+            .about-us {
+                flex: 1;
+                margin-bottom: 2rem;
+
+                .image {
+                    img {
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+
+                p {
+                    margin-bottom: 1rem;
+                    margin-top: 1rem;
+                    line-height: 1.5;
+                }
+
+                .we-help-form, .bg-primary {
+                    position: relative;
+                    z-index: 1;
+                    padding: 2rem;
+
+                    h4 {
+                        color: var(--color-secondary);
+                    }
+
+                    .success-message {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: #5cb85c;
+                        color: var(--color-light);
+                        font-size: 1rem;
+                        font-weight: 400;
+                        text-align: center;
+                        margin-bottom: 1rem;
+                        padding: 0.5rem;
+                        border-radius: 3px;
+                        font-size: 0.7rem;
+                    }
+
+                    .form {
+                        form {
+
+                            .form-input-group {
+                                display: flex;
+                                flex-direction: column;
+
+
+                                input, select, textarea {
+                                    width: 100%;
+                                    margin-bottom: 0.5rem;
+                                    height: 52px;
+                                    font-family: 'Poppins', sans-serif;
+                                    font-size: 1rem;
+                                    padding: 0.5rem;
+                                    font-style: oblique;
+                                    border: 1px solid var(--color-note);
+                                    border-radius: 5px;
+                                }
+
+                                .form-input-error {
+                                    color: red;
+                                    font-size: 0.8rem;
+                                    margin-top: 0.5rem;
+                                    display: none;
+                                }
+
+                                .form-invalid-input {
+                                    display: block;
+                                }
+
+                                .form-valid-input {
+                                    display: none;
+                                }
+                            }
+
+                            .btn-we-help {
+                                position: absolute;
+                                bottom: 2.65rem;
+                                right: 3rem;
+                                background-color: transparent;
+                                border: none;
+                                font-size: 1.8rem;
+                                color: var(--color-note);
+                                z-index: 1;
+                                font-weight: 600;
+                                font-family: 'Poppins', sans-serif;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+
+
+
+                    .image {
+                        width: 50%;
+                        height: auto;
+                        position: absolute;
+                        bottom: 0;
+                        right: 0;
+                        z-index: -1;
+                    }
+                }
+            }
+
+            .main-content {
+                @include desktop {
+                    flex: 2;
+                    border-left: 1px solid var(--color-gray);
+                    padding-left: 3rem;
+                }
+
+                .image {
+                    img {
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+
+                h4 {
+                    margin-top: 2rem;
+                }
+
+                ul {
+                    li {
+                        line-height: 2;
+                    }
+                }
+
+                p {
+                    line-height: 2;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,94 @@
+#header {
+
+    .background-primary {
+        background-color: var(--color-primary);
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 40px;
+
+            .text {
+                display: none;
+
+                @include desktop {
+                    display: block;
+
+                    p {
+                        padding: 0;
+                        color: var(--color-light);
+                        font-size: 0.8rem;
+                    }
+                }
+            }
+
+            .social-links {
+                display: flex;
+                gap: 1rem;
+
+                a {
+                    i {
+                        color: var(--color-light);
+                    }
+                }
+            }
+        }
+    }
+
+    .background-light {
+        background-color: var(--color-light);
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            align-items: center;
+            height: 60px;
+
+
+            .logo {
+                display: none;
+
+                @include desktop {
+                    display: block;
+
+                    a {
+                        img {
+                            height: 80%;
+                            width: 80%;
+                        }
+                    }
+                }
+            }
+
+            .links {
+                a {
+                    color: var(--color-primary);
+                    font-weight: 600;
+                    text-decoration: none;
+
+                    &.active {
+                        color: var(--color-secondary);
+                        font-weight: bold;
+                    }
+                }
+
+                display: flex;
+                gap: 1rem;
+
+                @include desktop {
+                    gap: 3rem;
+                }
+            }
+
+            .search-icon {
+                justify-self: end;
+
+                a {
+                    color: var(--color-primary);
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,19 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "mainLayout.cshtml";
+   ViewBag.Title = Model?.Value("pageTitle") ?? null;
+}
+
+<html>
+   <head>
+      <title>
+         @Model.Value("pageTitle") | Onatrix
+      </title>
+   </head>
+
+   <body>
+      <h1>Home</h1>
+   </body>
+
+</html>

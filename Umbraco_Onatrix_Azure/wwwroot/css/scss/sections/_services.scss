@@ -1,0 +1,106 @@
+#our-services {
+    padding-top: 3rem;
+
+    .bg {
+        padding-top: 1rem;
+        padding-bottom: 6rem;
+
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            h2 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+            }
+
+            .solution {
+                display: grid;
+                gap: 20px;
+                grid-template-columns: 1fr;
+                margin-top: 3rem;
+
+                @include tablet {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                @include desktop {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+
+                a {
+                    text-decoration: none;
+                    color: var(--color-primary);
+                    background-color: var(--color-light);
+                    border: 1px solid var(--color-gray);
+                    transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+                    &:hover {
+                        transform: translateY(-3px);
+                        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+                    }
+
+                    .solution-item {
+                        h5 {
+                            padding: 1rem;
+                            margin: 0;
+                        }
+
+                        .image {
+                            img {
+                                width: 100%;
+                                height: auto;
+                            }
+                        }
+
+                        p {
+                            padding: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.pagnaition {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+
+    a {
+        text-decoration: none;
+        font-weight: 600;
+        color: var(--color-primary);
+        background-color: var(--color-light);
+        padding: 0.5rem 1rem;
+        border: 1px solid var(--color-gray);
+        border-radius: 999px;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    .prev {
+        border: none;
+        color: var(--color-gray);
+    }
+
+    .two {
+        border: none;
+    }
+
+    .next {
+        border: none;
+    }
+}
