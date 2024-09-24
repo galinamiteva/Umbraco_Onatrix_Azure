@@ -10,6 +10,8 @@
         .rights {
             display: none;
 
+            
+
             @include tablet {
                 display: block;
                 color: var(--color-light);

@@ -2,9 +2,97 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
 	Layout = "mainLayout.cshtml";
-   ViewBag.Title = Model?.Value("pageTitle") ?? null;
+   // ViewBag.Title = Model?.Value("pageTitle") ?? null;
+   ViewBag.Title = Model?.Value("heroSectionTitle")?? null;
+   
+    var backgroundImage = Model?.Value<IPublishedContent>("heroBackgroundImage")?.Url() ?? "";
+    var signatureImage = Model?.Value<IPublishedContent>("aboutSignatureImage")?.Url() ?? "";
+
 }
 
 
-<h1>@Model.Value("title")</h1>
-   
+<section id="heru-slider" class="hero">
+    
+    <div class="background" style="background-image:url(@backgroundImage);background-size: cover; background-position: 60%">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="headline">@Model?.Value("heroHeadline")</h1>
+                <p class="ingress">@Model?.Value("heroText")</p>
+                <div>
+                    <a href="@Model?.Value("heroButtonLinkUrl")" class="btn btn-primary">@Model?.Value("heroButtonText")</a>
+                </div>
+            </div>
+        </div>
+    </div>      
+ 
+</section>
+
+<section id="about-us" class="about-us">
+    <div class="container">
+        <div class="content">
+            <div class="headline">
+                <h6>@Model?.Value("aboutHeadline")</h6>
+                <h2>@Model?.Value("aboutSectionTitle")</h2>
+            </div>
+            <blockquote class="quote">“@Model?.Value("aboutQuote")”</blockquote>
+            <p>@Model?.Value("aboutText")</p>
+            <div class="signature-container">
+                <div class="signature">
+                    <img class="signature-image" src="@signatureImage" alr=""/>
+                    <div class="clarification">
+                        <p class="name">@Model?.Value("aboutSignatureText")</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-container">
+            <div class="request-box bg-light">
+                <div class="request-text">
+                    <h4>Request a call back</h4>
+                   
+                </div>
+
+                <div class="request-form">
+                    <p>Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat</p>
+
+                    @* 
+                    @using (Html.BeginUmbracoForm("HandleSubmit", "ContactSurface", FormMethod.Post, new { id = "contact-form" }))
+                    {
+                        <div class="form-input-group">
+                            <input id="name" name="name" type="text" placeholder="Name" class="form-input" value="@ViewData["name"]">
+                            <span class="form-input-error@((error_name) ? "form-invalid-input": null)">You must enter your name</span>
+                        </div>
+                        <div class="form-input-group">
+                            <input id="phone" name="phone" type="text" placeholder="Phone" class="form-input" value="@ViewData["phone"]">
+                            <span class="form-input-error@((error_phone) ? "form-invalid-input" : null)">You must enter a valid phone number</span>
+                        </div>
+                        <div class="form-input-group">
+                            <input id="email" name="email" type="email" placeholder="Email address" class="form-input" value="@ViewData["email"]">
+                            <span class="form-input-error@((error_email) ? "form-invalid-input" : null)">You must enter a valid e-mail address</span>
+                        </div>
+                        <div class="form-input-group">
+                            <select id="dropdown" name="dropdown" class="form-input">
+                                <option value="">Financial consulting</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="Maybe later">Maybe later</option>
+                            </select>
+                            <span class="form-input-error@((error_dropdown) ? "form-invalid-input" : null)">You must select an option</span>
+                        </div>
+                        <button type="submit" class="form-button btn-submit btn btn-secondary">Submit</button>
+
+                    }
+
+                    @if (TempData["success"] != null)
+                    {
+                        <div class="success-message">@TempData["Success"]</div>
+                    }
+
+                    *@
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
