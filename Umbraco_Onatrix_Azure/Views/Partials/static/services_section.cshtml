@@ -1,0 +1,117 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+@{
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+
+    var serviceSolution1Image = settings?.Value<IPublishedContent>("serviceSolution1Image")?.Url() ?? "";
+    var serviceSolution1Link = settings?.Value<string>("serviceSolution1Link") ?? "";
+    var serviceSolution1Headline = settings?.Value<string>("serviceSolution1Headline") ?? "";
+    var serviceSolution1Text = settings?.Value<string>("serviceSolution1Text") ?? "";
+    
+    var serviceSolution2Image = settings?.Value<IPublishedContent>("serviceSolution2Image")?.Url() ?? "";
+    var serviceSolution2Link = settings?.Value<string>("serviceSolution2Link") ?? "";
+    var serviceSolution2Headline = settings?.Value<string>("serviceSolution2Headline") ?? "";
+    var serviceSolution2Text = settings?.Value<string>("serviceSolution2Text") ?? "";
+
+    var serviceSolution3Image = settings?.Value<IPublishedContent>("serviceSolution3Image")?.Url() ?? "";
+    var serviceSolution3Link = settings?.Value<string>("serviceSolution3Link") ?? "";
+    var serviceSolution3Headline = settings?.Value<string>("serviceSolution3Headline") ?? "";
+    var serviceSolution3Text = settings?.Value<string>("serviceSolution3Text") ?? "";
+
+    var serviceSolution4Image = settings?.Value<IPublishedContent>("serviceSolution4Image")?.Url() ?? "";
+    var serviceSolution4Link = settings?.Value<string>("serviceSolution4Link") ?? "";
+    var serviceSolution4Headline = settings?.Value<string>("serviceSolution4Headline") ?? "";
+    var serviceSolution4Text = settings?.Value<string>("serviceSolution4Text") ?? "";
+
+    var serviceSolution5Image = settings?.Value<IPublishedContent>("serviceSolution5Image")?.Url() ?? "";
+    var serviceSolution5Link = settings?.Value<string>("serviceSolution5Link") ?? "";
+    var serviceSolution5Headline = settings?.Value<string>("serviceSolution5Headline") ?? "";
+    var serviceSolution5Text = settings?.Value<string>("serviceSolution5Text") ?? "";
+
+    var serviceSolution6Image = settings?.Value<IPublishedContent>("serviceSolution6Image")?.Url() ?? "";
+    var serviceSolution6Link = settings?.Value<string>("serviceSolution6Link") ?? "";
+    var serviceSolution6Headline = settings?.Value<string>("serviceSolution6Headline") ?? "";
+    var serviceSolution6Text = settings?.Value<string>("serviceSolution6Text") ?? "";
+
+    var currentPageUrl = Model.Url();
+    var isServicesPage = currentPageUrl.Contains("/services");
+
+
+}
+
+
+
+<section id="our-services" class="our-services">
+    <div class="bg @(isServicesPage ? "bg-light" : "bg-gray")">
+        <div class="container">
+            <h6>@Model?.Value("servicesHeadline")</h6>
+            <h2>@Model?.Value("servicesTitle1Row")</h2>
+            <h2>@Model?.Value("servicesTitle2Row")</h2>
+            
+            <div class="solution">
+                <a href="@serviceSolution1Link">
+                    <div class="solution-item">
+                        <h5>@serviceSolution1Headline</h5>
+                        <div class="image">
+                            <img src="@serviceSolution1Image" alt="Image of @serviceSolution1Headline">
+                        </div>
+                        <p>@serviceSolution1Text</p>
+                    </div>
+                </a>
+               <a href="@serviceSolution2Link">
+                    <div class="solution-item">
+                        <h5>@serviceSolution2Headline</h5>
+                        <div class="image">
+                            <img src="@serviceSolution2Image" alt="Image of @serviceSolution2Headline">
+                        </div>
+                        <p>@serviceSolution2Text</p>
+                    </div>
+                </a>
+
+                <a href="@serviceSolution3Link">
+                    <div class="solution-item">
+                        <h5>@serviceSolution3Headline</h5>
+                        <div class="image">
+                            <img src="@serviceSolution3Image" alt="Image of @serviceSolution3Headline">
+                        </div>
+                        <p>@serviceSolution3Text</p>
+                    </div>
+                </a>
+
+                <a href="@serviceSolution4Link">
+                    <div class="solution-item">
+                        <h5>@serviceSolution4Headline</h5>
+                        <div class="image">
+                            <img src="@serviceSolution4Image" alt="Image of @serviceSolution4Headline">
+                        </div>
+                        <p>@serviceSolution4Text</p>
+                    </div>
+                </a>
+
+                <a href="@serviceSolution5Link">
+                    <div class="solution-item">
+                        <h5>@serviceSolution5Headline</h5>
+                        <div class="image">
+                            <img src="@serviceSolution5Image" alt="Image of @serviceSolution5Headline">
+                        </div>
+                        <p>@serviceSolution5Text</p>
+                    </div>
+                </a>
+
+                <a href="@serviceSolution6Link">
+                    <div class="solution-item">
+                        <h5>@serviceSolution6Headline</h5>
+                        <div class="image">
+                            <img src="@serviceSolution6Image" alt="Image of @serviceSolution6Headline">
+                        </div>
+                        <p>@serviceSolution6Text</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</section>
+        
