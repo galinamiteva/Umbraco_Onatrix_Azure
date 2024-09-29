@@ -1,7 +1,124 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+
+
 @{
 	Layout = "mainLayout.cshtml";
+
+	 ViewBag.Title = Model?.Value("pageTitle") ?? null;
+	var rootContents = UmbracoHelper.ContentAtRoot();
+	var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+
+	var servicesBannerBackground = settings?.Value<IPublishedContent>("servicesBannerBackground")?.Url() ?? "";     
+	var servicesBannerLinkText1 = settings?.Value<string>("servicesBannerLinkText1") ?? "";  
+	var servicesBannerLink1 = settings?.Value<string>("servicesBannerLink1") ?? "";     
+
+	var ourProjectsProject1Img = Model?.Value<IPublishedContent>("ourProjectsProject1Img")?.Url() ?? "";   
+	var ourProjectsProject2Img = Model?.Value<IPublishedContent>("ourProjectsProject2Img")?.Url() ?? "";
+	var ourProjectsProject3Img = Model?.Value<IPublishedContent>("ourProjectsProject3Img")?.Url() ?? "";
+	var ourProjectsProject4Img = Model?.Value<IPublishedContent>("ourProjectsProject4Img")?.Url() ?? "";
+
 }
 
- <h1>@Model.Value("pageTitle")</h1>
+ <section id="contact" class="banner bg-gray">
+    <div class="background"> 
+        <img src="@servicesBannerBackground" alt="Backround image">
+        <div class="content">
+            <h2>@Model?.Value("servicesBannerHeadline")</h2>
+            <div class="links">
+                <a class="home" href="@servicesBannerLink1">@servicesBannerLinkText1</a>
+                    <div class="chevron"><i class="fa-solid fa-chevron-right"></i></div>
+                <a class="activ" href="@Model?.Value("projectsBannerLink2")">@Model?.Value("projectsBannerLinkText2")</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+	<div class="container">
+		<div class="our-projects">
+    <a href="@Model.Value("ourProjectsProject1Link")">
+        <div class="image">
+            <img src="@ourProjectsProject1Img" alt="">
+        </div>
+        
+        <div class="project-text">
+            <div class="text">
+                <h4>@Model.Value("ourProjectsProject1Headline")</h4>
+                <p class="date"><i class="fa-regular fa-calendar-days"></i> @Model.Value("ourProjectsProject1Date")</p>
+                <p>@Model.Value("ourProjectsProject1Text")</p>
+            </div>
+            <div class="button">
+                <div class="btn-light">
+                    @Model.Value("ourProjectsProject1Button") <i class="fas fa-arrow-right"></i>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <a href="@Model.Value("ourProjectsProject2Link")">
+        <div class="image">
+            <img src="@ourProjectsProject2Img" alt="">
+        </div>
+        <div class="project-text">
+            <div class="text">
+                <h4>@Model.Value("ourProjectsProject2Headline")</h4>
+                <p class="date"><i class="fa-regular fa-calendar-days"></i> @Model.Value("ourProjectsProject2Date")</p>
+                <p>@Model.Value("ourProjectsProject2Text")</p>
+            </div>
+            <div class="button">
+                <div class="btn-light">
+                    @Model.Value("ourProjectsProject2Button") <i class="fas fa-arrow-right"></i>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <a href="@Model.Value("ourProjectsProject3Link")">
+        <div class="image">
+            <img src="@ourProjectsProject3Img" alt="">
+        </div>
+        <div class="project-text">
+            <div class="text">
+                <h4>@Model.Value("ourProjectsProject3Headline")</h4>
+                <p class="date"><i class="fa-regular fa-calendar-days"></i> @Model.Value("ourProjectsProject3Date")</p>
+                <p>@Model.Value("ourProjectsProject3Text")</p>
+            </div>
+            <div class="button">
+                <div class="btn-light">
+                    @Model.Value("ourProjectsProject3Button") <i class="fas fa-arrow-right"></i>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <a href="@Model.Value("ourProjectsProject4Link")" class="last-box">
+        <div class="image">
+            <img src="@ourProjectsProject4Img" alt="">
+        </div>
+        <div class="project-text">
+            <div class="text">
+                <h4>@Model.Value("ourProjectsProject4Headline")</h4>
+                <p class="date"><i class="fa-regular fa-calendar-days"></i> @Model.Value("ourProjectsProject4Date")</p>
+                <p>@Model.Value("ourProjectsProject4Text")</p>
+            </div>
+            <div class="button">
+                <div class="btn-light">
+                    @Model.Value("ourProjectsProject4Button") <i class="fas fa-arrow-right"></i>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <div class="pagnaition">
+        <a href="#" class="prev">Prev</a>
+        <a href="#" class="one">1</a>
+        <a href="#" class="two">2</a>
+        <a href="#" class="next">Next</a>
+    </div>
+</div>
+	</div>
+</section>
+
+@await Html.PartialAsync("partials/static/next-project.cshtml")

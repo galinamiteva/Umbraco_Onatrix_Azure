@@ -5,10 +5,7 @@
 
         @include desktop {
             display: block;
-            // background-image: url('../../../images/sl-home2.png');
-            // background-size: cover;
-            // background-repeat: no-repeat;
-            // background-position: 60%;
+            
         }
 
         @media (min-width: 1700px) {
@@ -63,12 +60,15 @@
             @include desktop {
                 width: 50%;
             }
+
+            .quote {
+                font-weight: 400;
+                font-style: oblique;
+            }
         }
 
         .form-container {
-            /*            width: 100%;
-            height: 400px;
-            background-color: var(--color-primary);*/
+
 
             @include desktop {
                 position: absolute;
@@ -185,6 +185,7 @@
     .bg {
         padding-top: 1rem;
         padding-bottom: 6rem;
+        background-color: var(--color-gray) !important;
 
 
         .container {

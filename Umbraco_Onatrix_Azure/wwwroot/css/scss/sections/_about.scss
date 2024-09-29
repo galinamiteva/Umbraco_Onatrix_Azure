@@ -47,6 +47,7 @@
 #kevin {
     position: relative;
     height: 500px;
+    background-color: var(--color-gray) !important;
 
     .container {
         @include desktop {
@@ -99,8 +100,6 @@
                 left: 660px;
 
                 img {
-                    // width: 100%;
-                    // height: auto;
                     height: 500px;
                 }
             }

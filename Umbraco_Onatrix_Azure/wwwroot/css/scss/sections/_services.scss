@@ -4,6 +4,7 @@
     .bg {
         padding-top: 1rem;
         padding-bottom: 6rem;
+        background-color: var(--color-light) !important;
 
 
         .container {
@@ -93,7 +94,8 @@
 
     .prev {
         border: none;
-        color: var(--color-gray);
+        color: var(--color-border-gray);
+       
     }
 
     .two {
