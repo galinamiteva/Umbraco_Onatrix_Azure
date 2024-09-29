@@ -1,13 +1,170 @@
 ﻿
 @using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+
 @{
 	Layout = "mainLayout.cshtml";
+    ViewBag.Title = Model?.Value("pageTitle") ?? null;
 
+var rootContents = UmbracoHelper.ContentAtRoot();
+var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+
+var servicesBannerBackground = settings?.Value<IPublishedContent>("servicesBannerBackground")?.Url() ?? "";     
+var servicesBannerLinkText1 = settings?.Value<string>("servicesBannerLinkText1") ?? "";  
+var servicesBannerLink1 = settings?.Value<string>("servicesBannerLink1") ?? "";             
+
+var tinaImg = Model?.Value<IPublishedContent>("tinaImg")?.Url() ?? "";
+var kevinImg = Model?.Value<IPublishedContent>("kevinImg")?.Url() ?? "";
+var ourExpertsExpert1Img = Model?.Value<IPublishedContent>("ourExpertsExpert1Img")?.Url() ?? "";
+var ourExpertsExpert2Img = Model?.Value<IPublishedContent>("ourExpertsExpert2Img")?.Url() ?? "";
+var ourExpertsExpert3Img = Model?.Value<IPublishedContent>("ourExpertsExpert3Img")?.Url() ?? "";
+var ourExpertsMoreExpert1Img = Model?.Value<IPublishedContent>("ourExpertsMoreExpert1Img")?.Url() ?? "";
+var ourExpertsMoreExpert2Img = Model?.Value<IPublishedContent>("ourExpertsMoreExpert2Img")?.Url() ?? "";
+var ourExpertsMoreExpert3Img = Model?.Value<IPublishedContent>("ourExpertsMoreExpert3Img")?.Url() ?? "";
+var ourExpertsMoreExpert4Img = Model?.Value<IPublishedContent>("ourExpertsMoreExpert4Img")?.Url() ?? "";
         
         
 } 
 
+<section id="about" class="banner bg-gray">
+    <div class="background"> 
+        <img src="@servicesBannerBackground" alt="Backround img">
+        <div class="content">
+            <h2>@Model?.Value("aboutHeadline")</h2>
+            <div class="links">
+                <a class="home" href="@servicesBannerLink1">@servicesBannerLinkText1</a>
+                    <div class="chevron"><i class="fa-solid fa-chevron-right"></i></div>
+                <a class="activ" href="@Model?.Value("aboutLink2")">@Model?.Value("aboutLinkText2")</a>
+            </div>
+        </div>
+    </div>
+</section>
 
-  <h1>@Model.Value("pageTitle")</h1>
+<section id="tina">
+    <div class="container">
+        <div class="tina-image">
+            <div class="image">
+                <img src="@tinaImg" alt="Image of @Model?.Value("tinaHeadline")">
+            </div>
+            <h5>@Model?.Value("tinaHeadline")</h5>
+        </div>
+
+        <div class="tina-text">
+            <h4>“@Model?.Value("tinaQuote")”</h4>
+            <h6>@Model?.Value("tinaText1")</h6>
+            <h6>@Model?.Value("tinaText2")</h6>
+            <h6>@Model?.Value("tinaText3")</h6>
+            <h6>@Model?.Value("tinaText4")</h6>
+            <h6>@Model?.Value("tinaText5")</h6>
+            <h6>@Model?.Value("tinaText6")</h6>
+            <h6>@Model?.Value("tinaText7")</h6>
+        </div>
+    </div>
+</section>
+
+<section id="kevin" class="bg-gray">
+    <div class="container">
+        <div class="content">
+            <div class="kevin-text">
+                <h6>@Model?.Value("kevinHeadline")</h6>
+                <h2>@Model?.Value("kevinHeading")</h2>
+                <h5>@Model?.Value("kevinText")</h5>
+                <div class="star-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>@Model?.Value("kevinName")</p>
+                <h5 class="swedbank">@Model?.Value("kevinBank")</h5>
+            </div>  
+        </div>
+        <div class="kevin-image">
+            <img src="@kevinImg" alt="Image of @Model?.Value("kevinName")">
+        </div>
+        <div></div>
+    </div>
+</section>
+
+<section id="our-experts">
+    <div class="container">
+        <div class="headline">
+            <h6>@Model?.Value("ourExpertsHeadline")</h6>
+            <h2>@Model?.Value("ourExpertsHeading")</h2>
+        </div>
+
+        <div class="content-expert">
+            <div class="our-expert">
+                <div class="image">
+                    <img src="@ourExpertsExpert1Img" alt="Image of @Model?.Value("ourExpertsExpert1Name")">
+                </div>
+
+                <h4>@Model?.Value("ourExpertsExpert1Name")</h4>
+                <p>@Model?.Value("ourExpertsExpert1Text")</p>
+            </div>
+
+            <div class="our-expert">
+                <div class="image">
+                    <img src="@ourExpertsExpert2Img" alt="Image of @Model?.Value("ourExpertsExpert2Name")">
+                </div>
+
+                <h4>@Model?.Value("ourExpertsExpert2Name")</h4>
+                <p>@Model?.Value("ourExpertsExpert2Text")</p>
+            </div>
+
+            <div class="our-expert">
+                <div class="image">
+                    <img src="@ourExpertsExpert3Img" alt="Image of @Model?.Value("ourExpertsExpert3Name")">
+                </div>
+
+                <h4>@Model?.Value("ourExpertsExpert3Name")</h4>
+                <p>@Model?.Value("ourExpertsExpert3Text")</p>
+            </div>
+        </div>
+
+        <div class="content-more-expert">
+            <div class="our-expert">
+                <div class="image">
+                    <img src="@ourExpertsMoreExpert1Img" alt="Image of @Model?.Value("ourExpertsMoreExpert1Name")">
+                </div>
+
+                <h5>@Model?.Value("ourExpertsMoreExpert1Name")</h5>
+                <p>@Model?.Value("ourExpertsMoreExpert1Text")</p>
+            </div>
+
+            <div class="our-expert">
+                <div class="image">
+                    <img src="@ourExpertsMoreExpert2Img" alt="Image of @Model?.Value("ourExpertsMoreExpert2Name")">
+                </div>
+
+                <h5>@Model?.Value("ourExpertsMoreExpert2Name")</h5>
+                <p>@Model?.Value("ourExpertsMoreExpert2Text")</p>
+            </div>
+
+            <div class="our-expert">
+                <div class="image">
+                    <img src="@ourExpertsMoreExpert3Img" alt="Image of @Model?.Value("ourExpertsMoreExpert3Name")">
+                </div>
+
+                <h5>@Model?.Value("ourExpertsMoreExpert3Name")</h5>
+                <p>@Model?.Value("ourExpertsMoreExpert3Text")</p>
+            </div>
+
+            <div class="our-expert">
+                <div class="image">
+                    <img src="@ourExpertsMoreExpert4Img" alt="Image of @Model?.Value("ourExpertsMoreExpert4Name")">
+                </div>
+
+                <h5>@Model?.Value("ourExpertsMoreExpert4Name")</h5>
+                <p>@Model?.Value("ourExpertsMoreExpert4Text")</p>
+            </div>
+        </div>  
+    </div>
+</section>
+
+@await Html.PartialAsync("partials/static/next-project.cshtml")
+
+
     

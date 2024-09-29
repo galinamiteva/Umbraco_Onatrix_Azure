@@ -4,6 +4,9 @@
 @{
     var rootContents = UmbracoHelper.ContentAtRoot();
     var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+    var currentPageUrl = Model.Url();
+    var isServicesPage = currentPageUrl.Contains("/services");
+
 
     var serviceSolution1Image = settings?.Value<IPublishedContent>("serviceSolution1Image")?.Url() ?? "";
     var serviceSolution1Link = settings?.Value<string>("serviceSolution1Link") ?? "";
@@ -35,9 +38,7 @@
     var serviceSolution6Headline = settings?.Value<string>("serviceSolution6Headline") ?? "";
     var serviceSolution6Text = settings?.Value<string>("serviceSolution6Text") ?? "";
 
-    var currentPageUrl = Model.Url();
-    var isServicesPage = currentPageUrl.Contains("/services");
-
+  
 
 }
 

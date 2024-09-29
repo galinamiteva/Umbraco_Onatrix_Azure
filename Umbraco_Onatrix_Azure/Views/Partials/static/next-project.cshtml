@@ -1,0 +1,61 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+
+@{
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+    var nextProjectTextHeadline = settings?.Value<string>("nextProjectTextHeadline") ?? "";
+    var officeLocation = settings?.Value<string>("officeLocation") ?? "";
+    var officePhoneNumber = settings?.Value<string>("officePhoneNumber") ?? "";
+    var officeEmailAddress = settings?.Value<string>("officeEmailAddress") ?? "";
+
+    var nextProjectTextLocation = settings?.Value<string>("nextProjectTextLocation") ?? "";
+    var nextProjectTextPhone = settings?.Value<string>("nextProjectTextPhone") ?? "";
+    var nextProjectTextEmail = settings?.Value<string>("nextProjectTextEmail") ?? "";
+
+    var nextProjectImgHuman = settings?.Value<IPublishedContent>("nextProjectImgHuman")?.Url() ?? "";
+    var nextProjectImgBackground = settings?.Value<IPublishedContent>("nextProjectImgBackground")?.Url() ?? "";
+    var nextProjectImgDot = settings?.Value<IPublishedContent>("nextProjectImgDot")?.Url() ?? "";
+    
+  var currentPageUrl = Model.Url();
+    var isContactPage = currentPageUrl.Contains("/contact");
+}
+
+<section id="next-project" class="@(isContactPage ? "" : "bg-gray")">
+    <div class="container">
+
+        <div class="images">
+            <div class="image-human">
+                <img src="@nextProjectImgHuman" alt="">
+            </div>
+
+            <div class="image-background">
+                <img src="@nextProjectImgBackground" alt="">
+            </div>
+
+            <div class="image-dot">
+                <img src="@nextProjectImgDot" alt="">
+            </div>
+        </div>
+
+        <div class="text">
+
+                      
+                <h2>@nextProjectTextHeadline</h2>
+            
+
+            
+
+            <h5><i class="fas fa-map-marker-alt"></i>Office location</h5>
+            <p>@officeLocation</p>
+            
+            
+            <h5><i class="fas fa-phone"></i>Phone number</h5>           
+            <p>@officePhoneNumber</p>
+            
+            <h5><i class="fas fa-envelope"></i>E-mail address</h5>
+            <p>@officeEmailAddress</p>
+        </div>
+    </div>
+</section>
