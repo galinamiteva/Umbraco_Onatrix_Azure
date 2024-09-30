@@ -5,39 +5,55 @@
     var rootContents = UmbracoHelper.ContentAtRoot();
     var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage");
 
+    var officeLocation = settings?.Value<string>("officeLocation") ?? "";
+
     var socialMediaPlatforms = settings?.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("socialMediaPlatforms")?? null;
+           
+
 }
 
-
+// funkar inte på någon anlendning
 @if (socialMediaPlatforms != null)
-{
-    <div class="socialmedia">
-        
+{   
+    <div class="container ">
+        <div class="text">
+            <p>@officeLocation </p>
+        </div>
 
-        @foreach (var social in socialMediaPlatforms)
-        {
-            var platformName = social?.Content?.Value<string>("platformName");
-            var platformAccountUrl = social?.Content?.Value<string>("platformAccountUrl");
-            switch (platformName?.ToLower())
+         <div class="social-links socialmedia">
+           
+            @foreach (var social in socialMediaPlatforms)            
             {
-                case "facebook":
-                    <a href="@platformAccountUrl" title="platformAccountUrl" target="_blank" class="socialmedia-item"><i class="fab fa-facebook"></i></a>;
-                    break;
-                case "instagram":
-                    <a href="@platformAccountUrl" title="platformAccountUrl" target="_blank" class="socialmedia-item"><i class="fab fa-instagram"></i></a>;
-                    break;
-                case "linkedin":
-                    <a href="@platformAccountUrl" title="platformAccountUrl" target="_blank" class="socialmedia-item"><i class="fab fa-facebook"></i></a>;
-                    break;
-                case "tiktok":
-                    <a href="@platformAccountUrl" title="platformAccountUrl" target="_blank" class="socialmedia-item"><i class="fab fa-facebook"></i></a>;
-                    break;
-              
-                case "x":
-                    <a href="@platformAccountUrl" class="tag">@tagsName</a>;
-                    break;
-               
+                var platformName = social?.Content?.Value<string>("platformName");
+                var platformAccountUrl = social?.Content?.Value<string>("platformAccountUrl");  
+                
+                switch (platformName?.ToLower())
+                {
+                    case "facebook":
+                        <a href="@platformAccountUrl" title="platformName" target="_blank" ><i class="fab fa-facebook"></i></a>;
+                        break;
+                    case "instagram":
+                        <a href="@platformAccountUrl"  title="platformName" target="_blank" ><i class="fab fa-instagram"></i></a>;
+                        break;
+                    case "x(formerly twitter)":
+                        <a href="@platformAccountUrl" title="platformName" target="_blank" ><i class="fa-brands fa-x-twitter"></i></a>;
+                        break;
+                    case "linkedin":
+                        <a href="@platformAccountUrl" title="platformName" target="_blank" ><i class="fa-brands fa-linkedin-in"></i></a>;
+                        break;
+                    case "tiktok":
+                        <a href="@platformAccountUrl" title="platformName" target="_blank" ><i class="fa-brands fa-tiktok"></i></a>;
+                        break;
+                
+                    
+                    
+                
+                }
+                
+                
             }
-        }
-    </div>
+        </div>
+    </div>                   
+                  
 }
+

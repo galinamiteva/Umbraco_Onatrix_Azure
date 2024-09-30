@@ -12,7 +12,7 @@
 
     var headerTwitterLink = settings?.Value<string>("headerTwitterLink") ?? "";
     var headerFacebookLink = settings?.Value<string>("headerFacebookLink") ?? "";
-    var headerInstagramLink = settings?.Value<string>("headerInstagramLink") ?? "";
+    var headerLinkedinLink = settings?.Value<string>("headerLinkedinLink") ?? "";
 
     var headerLink1 = settings?.Value<string>("headerLink1") ?? "";
     var headerLinkText1 = settings?.Value<string>("headerLinkText1") ?? "";
@@ -39,28 +39,26 @@
                 <p>@officeLocation</p>
             </div>
             <div class="social-links">
-                 @*<a href="@headerFacebookLink" target="_blank">
-                    <i class="fab fa-facebook"></i>
-                </a> 
-                *@
-
-                 <a href="@headerFacebookLink">
+                <a href="@headerFacebookLink">
                     <i class="fab fa-facebook"></i>
                 </a>
-
-               
-
-
 
                 <a href="@headerTwitterLink">
                     <i class="fab fa-twitter"></i>
                 </a>
                
-                <a href="@headerInstagramLink" >
-                    <i class="fab fa-instagram"></i>
+                <a href="@headerLinkedinLink" >
+                    <i class="fa-brands fa-linkedin-in"></i>
                 </a>
             </div>
         </div>
+        
+
+     @*
+      partial -static Block List social funkar inte på någon anlendning
+
+        @await Html.PartialAsync("social-media.cshtml")
+    *@
     </div>
 
     <div class="background-light">
