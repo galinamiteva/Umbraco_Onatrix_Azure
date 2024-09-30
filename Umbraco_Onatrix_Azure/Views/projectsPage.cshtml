@@ -38,86 +38,90 @@
 <section id="projects">
 	<div class="container">
 		<div class="our-projects">
-    <a href="@Model.Value("ourProjectsProject1Link")">
-        <div class="image">
-            <img src="@ourProjectsProject1Img" alt="">
+            <a href="@Model!.Value("ourProjectsProject1Link")">
+                <div class="image">
+                    <img src="@ourProjectsProject1Img" alt="">
+                </div>
+        
+                <div class="project-text">
+                    <div class="text">
+                        <h4>@Model.Value("ourProjectsProject1Headline")</h4>
+                        <p class="date"><i class="fa-regular fa-calendar-days"></i> @Model.Value("ourProjectsProject1Date")</p>
+                        <p>@Model.Value("ourProjectsProject1Text")</p>
+                    </div>
+                    <div class="button">
+                        <div class="btn-light">
+                            @Model.Value("ourProjectsProject1Button") <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="@Model.Value("ourProjectsProject2Link")">
+                <div class="image">
+                    <img src="@ourProjectsProject2Img" alt="">
+                </div>
+                <div class="project-text">
+                    <div class="text">
+                        <h4>@Model.Value("ourProjectsProject2Headline")</h4>
+                        <p class="date"><i class="fa-regular fa-calendar-days"></i> @Model.Value("ourProjectsProject2Date")</p>
+                        <p>@Model.Value("ourProjectsProject2Text")</p>
+                    </div>
+                    <div class="button">
+                        <div class="btn-light">
+                            @Model.Value("ourProjectsProject2Button") <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="@Model.Value("ourProjectsProject3Link")">
+                <div class="image">
+                    <img src="@ourProjectsProject3Img" alt="">
+                </div>
+                <div class="project-text">
+                    <div class="text">
+                        <h4>@Model.Value("ourProjectsProject3Headline")</h4>
+                        <p class="date"><i class="fa-regular fa-calendar-days"></i> @Model.Value("ourProjectsProject3Date")</p>
+                        <p>@Model.Value("ourProjectsProject3Text")</p>
+                    </div>
+                    <div class="button">
+                        <div class="btn-light">
+                            @Model.Value("ourProjectsProject3Button") <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="@Model.Value("ourProjectsProject4Link")" class="last-box">
+                <div class="image">
+                    <img src="@ourProjectsProject4Img" alt="">
+                </div>
+                <div class="project-text">
+                    <div class="text">
+                        <h4>@Model.Value("ourProjectsProject4Headline")</h4>
+                        <p class="date"><i class="fa-regular fa-calendar-days"></i> @Model.Value("ourProjectsProject4Date")</p>
+                        <p>@Model.Value("ourProjectsProject4Text")</p>
+                    </div>
+                    <div class="button">
+                        <div class="btn-light">
+                            @Model.Value("ourProjectsProject4Button") <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <div class="pagnaition">
+                <a href="#" class="prev">Prev</a>
+                <a href="#" class="one">1</a>
+                <a href="#" class="two">2</a>
+                <a href="#" class="next">Next</a>
+            </div>
+        </div>
+        <div class="nav-content">
+            @await Html.PartialAsync("partials/static/tags.cshtml")            
         </div>
         
-        <div class="project-text">
-            <div class="text">
-                <h4>@Model.Value("ourProjectsProject1Headline")</h4>
-                <p class="date"><i class="fa-regular fa-calendar-days"></i> @Model.Value("ourProjectsProject1Date")</p>
-                <p>@Model.Value("ourProjectsProject1Text")</p>
-            </div>
-            <div class="button">
-                <div class="btn-light">
-                    @Model.Value("ourProjectsProject1Button") <i class="fas fa-arrow-right"></i>
-                </div>
-            </div>
-        </div>
-    </a>
-
-    <a href="@Model.Value("ourProjectsProject2Link")">
-        <div class="image">
-            <img src="@ourProjectsProject2Img" alt="">
-        </div>
-        <div class="project-text">
-            <div class="text">
-                <h4>@Model.Value("ourProjectsProject2Headline")</h4>
-                <p class="date"><i class="fa-regular fa-calendar-days"></i> @Model.Value("ourProjectsProject2Date")</p>
-                <p>@Model.Value("ourProjectsProject2Text")</p>
-            </div>
-            <div class="button">
-                <div class="btn-light">
-                    @Model.Value("ourProjectsProject2Button") <i class="fas fa-arrow-right"></i>
-                </div>
-            </div>
-        </div>
-    </a>
-
-    <a href="@Model.Value("ourProjectsProject3Link")">
-        <div class="image">
-            <img src="@ourProjectsProject3Img" alt="">
-        </div>
-        <div class="project-text">
-            <div class="text">
-                <h4>@Model.Value("ourProjectsProject3Headline")</h4>
-                <p class="date"><i class="fa-regular fa-calendar-days"></i> @Model.Value("ourProjectsProject3Date")</p>
-                <p>@Model.Value("ourProjectsProject3Text")</p>
-            </div>
-            <div class="button">
-                <div class="btn-light">
-                    @Model.Value("ourProjectsProject3Button") <i class="fas fa-arrow-right"></i>
-                </div>
-            </div>
-        </div>
-    </a>
-
-    <a href="@Model.Value("ourProjectsProject4Link")" class="last-box">
-        <div class="image">
-            <img src="@ourProjectsProject4Img" alt="">
-        </div>
-        <div class="project-text">
-            <div class="text">
-                <h4>@Model.Value("ourProjectsProject4Headline")</h4>
-                <p class="date"><i class="fa-regular fa-calendar-days"></i> @Model.Value("ourProjectsProject4Date")</p>
-                <p>@Model.Value("ourProjectsProject4Text")</p>
-            </div>
-            <div class="button">
-                <div class="btn-light">
-                    @Model.Value("ourProjectsProject4Button") <i class="fas fa-arrow-right"></i>
-                </div>
-            </div>
-        </div>
-    </a>
-
-    <div class="pagnaition">
-        <a href="#" class="prev">Prev</a>
-        <a href="#" class="one">1</a>
-        <a href="#" class="two">2</a>
-        <a href="#" class="next">Next</a>
-    </div>
-</div>
 	</div>
 </section>
 

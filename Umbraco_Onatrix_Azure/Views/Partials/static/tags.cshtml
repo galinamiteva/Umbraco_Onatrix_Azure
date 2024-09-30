@@ -1,0 +1,51 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+@{
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage");
+
+    var tags = settings?.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("tags");
+}
+
+
+@if (tags != null)
+{
+    <div class="tags">
+        <h4>Tags</h4>
+
+        @foreach (var tag in tags)
+        {
+            var tagsName = tag?.Content?.Value<string>("tagsName");
+            var tagsUrl = tag?.Content?.Value<string>("tagsUrl");
+                
+            switch (tagsName?.ToLower())
+            {
+                case "report":
+                    <a href="@tagsUrl" class="tag">@tagsName</a>;
+                    break;
+                case "business plans":
+                    <a href="@tagsUrl" class="tag">@tagsName</a>;
+                    break;
+                case "insights":
+                    <a href="@tagsUrl" class="tag">@tagsName</a>;
+                    break;
+                case "business":
+                    <a href="@tagsUrl" class="tag">@tagsName</a>;
+                    break;
+                case "app":
+                    <a href="@tagsUrl" class="tag">@tagsName</a>;
+                    break;
+                case "project":
+                    <a href="@tagsUrl" class="tag">@tagsName</a>;
+                    break;
+                case "finance":
+                    <a href="@tagsUrl" class="tag">@tagsName</a>;
+                    break;
+                case "pricing":
+                    <a href="@tagsUrl" class="tag">@tagsName</a>;
+                    break;
+            }
+        }
+    </div>
+}
