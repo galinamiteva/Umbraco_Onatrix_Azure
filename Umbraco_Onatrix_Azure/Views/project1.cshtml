@@ -1,0 +1,155 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+
+@{
+	Layout = "mainLayout.cshtml";
+
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+    var projects = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "projectsPage") ?? null;
+
+    var servicesBannerBackground = settings?.Value<IPublishedContent>("servicesBannerBackground")?.Url() ?? "";     
+    var servicesBannerLinkText1 = settings?.Value<string>("servicesBannerLinkText1") ?? "";  
+    var servicesBannerLink1 = settings?.Value<string>("servicesBannerLink1") ?? "";    
+
+    var ourProjectsProject1Img = projects?.Value<IPublishedContent>("ourProjectsProject1Img")?.Url() ?? "";
+    var ourProjectsProject2Img = projects?.Value<IPublishedContent>("ourProjectsProject2Img")?.Url() ?? "";
+    var ourProjectsProject3Img = projects?.Value<IPublishedContent>("ourProjectsProject3Img")?.Url() ?? "";
+    var ourProjectsProject4Img = projects?.Value<IPublishedContent>("ourProjectsProject4Img")?.Url() ?? "";
+
+    var ourProjectsProject1Link = projects?.Value<string>("ourProjectsProject1Link") ?? "";
+    var ourProjectsProject1Headline = projects?.Value<string>("ourProjectsProject1Headline") ?? "";
+    var ourProjectsProject1Date = projects?.Value<string>("ourProjectsProject1Date") ?? "";
+
+    var ourProjectsProject2Link = projects?.Value<string>("ourProjectsProject2Link") ?? "";
+    var ourProjectsProject2Headline = projects?.Value<string>("ourProjectsProject2Headline") ?? "";
+    var ourProjectsProject2Date = projects?.Value<string>("ourProjectsProject2Date") ?? "";
+
+    var ourProjectsProject3Link = projects?.Value<string>("ourProjectsProject3Link") ?? "";
+    var ourProjectsProject3Headline = projects?.Value<string>("ourProjectsProject3Headline") ?? "";
+    var ourProjectsProject3Date = projects?.Value<string>("ourProjectsProject3Date") ?? "";
+
+    var ourProjectsProject4Link = projects?.Value<string>("ourProjectsProject4Link") ?? "";
+    var ourProjectsProject4Headline = projects?.Value<string>("ourProjectsProject4Headline") ?? "";
+    var ourProjectsProject4Date = projects?.Value<string>("ourProjectsProject4Date") ?? "";
+
+    var projectImg = Model?.Value<IPublishedContent>("projectImg")?.Url() ?? "";
+    var projectImg1 = Model?.Value<IPublishedContent>("projectImg1")?.Url() ?? "";
+    var projectImg2 = Model?.Value<IPublishedContent>("projectImg2")?.Url() ?? "";
+
+}
+
+<section id="contact" class="banner bg-gray">
+    <div class="background"> 
+        <img src="@servicesBannerBackground" alt="Backround image">
+        <div class="content">
+            <h2>@Model!.Value("projectBanerHeadline")</h2>
+            <div class="links">
+                <a class="home" href="@servicesBannerLink1">@servicesBannerLinkText1</a>
+                    <div class="chevron"><i class="fa-solid fa-chevron-right"></i></div>
+                <a class="home" href="@Model?.Value("projectBannerLink2")">@Model?.Value("projectBannerLinkText2")</a>
+                    <div class="chevron"><i class="fa-solid fa-chevron-right"></i></div>
+                <a class="activ" href="@Model?.Value("projectBannerLink3")">@Model?.Value("projectBannerText3")</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="project-details">
+    <div class="container">
+        <div class="project">
+            <p class="date"><i class="fa-regular fa-calendar-days"></i>@Model!.Value("projectDate")</p>
+            <h6>@Model.Value("projectStartText")</h6>
+            <div class="image">
+                <img src="@projectImg" alt="Image of @ourProjectsProject1Headline">
+            </div>
+            
+            @Model.Value("projectText1")
+
+            <div class="image-text">
+                <div class="image-smal">
+                    <img src="@projectImg1" alt="Image of @ourProjectsProject1Headline">
+                </div>
+                <div class="text">
+                    @Model.Value("projectText2")
+                </div>
+            </div>
+
+            @Model.Value("projectText3")
+
+            <div class="image">
+                <img src="@projectImg2" alt="Image of @ourProjectsProject1Headline">
+            </div>
+
+            @Model.Value("projectText4")
+
+            <div class="tags">
+                <h4>Tags</h4>
+                <a href="#" class="tag">Business</a>
+                <a href="#" class="tag">Consulting</a>
+                <a href="#" class="tag">Onatrix</a>
+            </div>
+        </div>
+
+
+
+        <div class="nav-content">
+            <div class="recent-projects">
+                <div class="recent-projects-content">
+                    <h4>Recent projects</h4>
+
+                    <a href="@ourProjectsProject1Link">
+                        <div class="image">
+                            <img src="@ourProjectsProject1Img" alt="">
+                        </div>
+                        <div class="text">
+                            <h6>@ourProjectsProject1Headline</h6>
+                            <p class="date"><i class="fa-regular fa-calendar-days"></i> @ourProjectsProject1Date</p>
+                        </div>
+                    </a>
+
+                    <a href="@ourProjectsProject2Link">
+                        <div class="image">
+                            <img src="@ourProjectsProject2Img" alt="">
+                        </div>
+                        <div class="text">
+                            <h6>@ourProjectsProject2Headline</h6>
+                            <p class="date"><i class="fa-regular fa-calendar-days"></i> @ourProjectsProject2Date</p>
+                        </div>
+                    </a>
+
+                    <a href="@ourProjectsProject3Link">
+                        <div class="image">
+                            <img src="@ourProjectsProject3Img" alt="">
+                        </div>
+                        <div class="text">
+                            <h6>@ourProjectsProject3Headline</h6>
+                            <p class="date"><i class="fa-regular fa-calendar-days"></i> @ourProjectsProject3Date</p>
+                        </div>
+                    </a>
+
+                    <a href="@ourProjectsProject4Link">
+                        <div class="image">
+                            <img src="@ourProjectsProject4Img" alt="">
+                        </div>
+                        <div class="text">
+                            <h6>@ourProjectsProject4Headline</h6>
+                            <p class="date"><i class="fa-regular fa-calendar-days"></i> @ourProjectsProject4Date</p>
+                        </div>
+                    </a>
+                    
+                </div>
+            </div>
+            <div class="tags">
+                @await Html.PartialAsync("partials/static/tags.cshtml")     
+            </div>           
+            
+
+        </div>
+    </div>
+    
+</section>
+
+
+@await Html.PartialAsync("partials/static/next-project.cshtml")
