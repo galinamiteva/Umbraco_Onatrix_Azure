@@ -1,0 +1,22 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+
+@{
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+
+    var solutionAboutImg = settings?.Value<IPublishedContent>("solutionAboutImg")?.Url() ?? "";
+    var solutionAboutHeadline = settings?.Value<string>("solutionAboutHeadline") ?? "";
+    var solutionAboutText = settings?.Value<string>("solutionAboutText") ?? "";
+
+ 
+}
+
+
+<h4>@solutionAboutHeadline</h4>
+<div class="image">
+    <img src="@solutionAboutImg" alt="Image of people">
+</div>
+<p>@solutionAboutText</p>
+   
