@@ -4,53 +4,58 @@
 
 @{
 	Layout = "mainLayout.cshtml";
-
+    ViewBag.Title = Model?.Value("pageTitle") ?? null;
     var rootContents = UmbracoHelper.ContentAtRoot();
     var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
-    var projects = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "projectsPage") ?? null;
+    var homePage = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "homePage");
+    var projects = homePage?.Children?.FirstOrDefault(x => x.ContentType.Alias == "projectsPage");
 
-    var servicesBannerBackground = settings?.Value<IPublishedContent>("servicesBannerBackground")?.Url() ?? "";     
-    var servicesBannerLinkText1 = settings?.Value<string>("servicesBannerLinkText1") ?? "";  
-    var servicesBannerLink1 = settings?.Value<string>("servicesBannerLink1") ?? "";    
+    var servicesBannerBackground = settings?.Value<IPublishedContent>("servicesBannerBackground")?.Url() ?? null;     
+    var servicesBannerLinkText1 = settings?.Value<string>("servicesBannerLinkText1") ?? null;  
+    var servicesBannerLink1 = settings?.Value<string>("servicesBannerLink1") ?? null;    
 
-    var ourProjectsProject1Img = projects?.Value<IPublishedContent>("ourProjectsProject1Img")?.Url() ?? "";
-    var ourProjectsProject2Img = projects?.Value<IPublishedContent>("ourProjectsProject2Img")?.Url() ?? "";
-    var ourProjectsProject3Img = projects?.Value<IPublishedContent>("ourProjectsProject3Img")?.Url() ?? "";
-    var ourProjectsProject4Img = projects?.Value<IPublishedContent>("ourProjectsProject4Img")?.Url() ?? "";
+    
+    var ourProjectsProject1Link = projects?.Value<string>("ourProjectsProject1Link") ?? null;
+    var ourProjectsProject1Headline = projects?.Value<string>("ourProjectsProject1Headline") ?? null;
+    var ourProjectsProject1Date = projects?.Value<string>("ourProjectsProject1Date") ?? null;
 
-    var ourProjectsProject1Link = projects?.Value<string>("ourProjectsProject1Link") ?? "";
-    var ourProjectsProject1Headline = projects?.Value<string>("ourProjectsProject1Headline") ?? "";
-    var ourProjectsProject1Date = projects?.Value<string>("ourProjectsProject1Date") ?? "";
+    var ourProjectsProject2Link = projects?.Value<string>("ourProjectsProject2Link") ?? null;
+    var ourProjectsProject2Headline = projects?.Value<string>("ourProjectsProject2Headline") ?? null;
+    var ourProjectsProject2Date = projects?.Value<string>("ourProjectsProject2Date") ?? null;
 
-    var ourProjectsProject2Link = projects?.Value<string>("ourProjectsProject2Link") ?? "";
-    var ourProjectsProject2Headline = projects?.Value<string>("ourProjectsProject2Headline") ?? "";
-    var ourProjectsProject2Date = projects?.Value<string>("ourProjectsProject2Date") ?? "";
+    var ourProjectsProject3Link = projects?.Value<string>("ourProjectsProject3Link") ?? null;
+    var ourProjectsProject3Headline = projects?.Value<string>("ourProjectsProject3Headline") ?? null;
+    var ourProjectsProject3Date = projects?.Value<string>("ourProjectsProject3Date") ?? null;
 
-    var ourProjectsProject3Link = projects?.Value<string>("ourProjectsProject3Link") ?? "";
-    var ourProjectsProject3Headline = projects?.Value<string>("ourProjectsProject3Headline") ?? "";
-    var ourProjectsProject3Date = projects?.Value<string>("ourProjectsProject3Date") ?? "";
+    var ourProjectsProject4Link = projects?.Value<string>("ourProjectsProject4Link") ?? null;
+    var ourProjectsProject4Headline = projects?.Value<string>("ourProjectsProject4Headline") ?? null;
+    var ourProjectsProject4Date = projects?.Value<string>("ourProjectsProject4Date") ?? null;
 
-    var ourProjectsProject4Link = projects?.Value<string>("ourProjectsProject4Link") ?? "";
-    var ourProjectsProject4Headline = projects?.Value<string>("ourProjectsProject4Headline") ?? "";
-    var ourProjectsProject4Date = projects?.Value<string>("ourProjectsProject4Date") ?? "";
+    var ourProjectsProject1Img = projects?.Value<IPublishedContent>("ourProjectsProject1Img")?.Url() ?? null;
+    var ourProjectsProject2Img = projects?.Value<IPublishedContent>("ourProjectsProject2Img")?.Url() ?? null;
+    var ourProjectsProject3Img = projects?.Value<IPublishedContent>("ourProjectsProject3Img")?.Url() ?? null;
+    var ourProjectsProject4Img = projects?.Value<IPublishedContent>("ourProjectsProject4Img")?.Url() ?? null;
 
-    var projectImg = Model?.Value<IPublishedContent>("projectImg")?.Url() ?? "";
-    var projectImg1 = Model?.Value<IPublishedContent>("projectImg1")?.Url() ?? "";
-    var projectImg2 = Model?.Value<IPublishedContent>("projectImg2")?.Url() ?? "";
+    var projectImg = Model?.Value<IPublishedContent>("projectImg")?.Url() ?? null;
+    var projectImg1 = Model?.Value<IPublishedContent>("projectImg1")?.Url() ?? null;
+    var projectImg2 = Model?.Value<IPublishedContent>("projectImg2")?.Url() ?? null;
+
 
 }
+
+
 
 <section id="contact" class="banner bg-gray">
     <div class="background"> 
         <img src="@servicesBannerBackground" alt="Backround image">
         <div class="content">
-            <h2>@Model!.Value("projectBanerHeadline")</h2>
+            <h2>@Model!.Value("projectBannerHeadline")</h2>
             <div class="links">
                 <a class="home" href="@servicesBannerLink1">@servicesBannerLinkText1</a>
                     <div class="chevron"><i class="fa-solid fa-chevron-right"></i></div>
                 <a class="home" href="@Model?.Value("projectBannerLink2")">@Model?.Value("projectBannerLinkText2")</a>
                     <div class="chevron"><i class="fa-solid fa-chevron-right"></i></div>
-                <a class="activ" href="@Model?.Value("projectBannerLink3")">@Model?.Value("projectBannerText3")</a>
+                <a class="activ" href="@Model?.Value("projectBannerLink3")">@Model?.Value("projectBannerLinkText3")</a>
             </div>
         </div>
     </div>
@@ -60,29 +65,29 @@
     <div class="container">
         <div class="project">
             <p class="date"><i class="fa-regular fa-calendar-days"></i>@Model!.Value("projectDate")</p>
-            <h6>@Model.Value("projectStartText")</h6>
+            <h6>@Model!.Value("projectText")</h6>
             <div class="image">
                 <img src="@projectImg" alt="Image of @ourProjectsProject1Headline">
             </div>
             
-            @Model.Value("projectText1")
+            @Model!.Value("projectText1")
 
             <div class="image-text">
                 <div class="image-smal">
                     <img src="@projectImg1" alt="Image of @ourProjectsProject1Headline">
                 </div>
                 <div class="text">
-                    @Model.Value("projectText2")
+                    @Model!.Value("projectText2")
                 </div>
             </div>
 
-            @Model.Value("projectText3")
+            @Model!.Value("projectText3")
 
             <div class="image">
                 <img src="@projectImg2" alt="Image of @ourProjectsProject1Headline">
             </div>
 
-            @Model.Value("projectText4")
+            @Model!.Value("projectText4")
 
             <div class="tags">
                 <h4>Tags</h4>

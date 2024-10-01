@@ -10,6 +10,9 @@
 var rootContents = UmbracoHelper.ContentAtRoot();
 var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
 
+
+
+
 var servicesBannerBackground = settings?.Value<IPublishedContent>("servicesBannerBackground")?.Url() ?? "";     
 var servicesBannerLinkText1 = settings?.Value<string>("servicesBannerLinkText1") ?? "";  
 var servicesBannerLink1 = settings?.Value<string>("servicesBannerLink1") ?? "";             
@@ -34,6 +37,8 @@ var ourExpertsMoreExpert4Img = Model?.Value<IPublishedContent>("ourExpertsMoreEx
         <div class="content">
             <h2>@Model?.Value("aboutHeadline")</h2>
             <div class="links">
+                
+              
                 <a class="home" href="@servicesBannerLink1">@servicesBannerLinkText1</a>
                     <div class="chevron"><i class="fa-solid fa-chevron-right"></i></div>
                 <a class="activ" href="@Model?.Value("aboutLink2")">@Model?.Value("aboutLinkText2")</a>

@@ -30,9 +30,7 @@
             <div class="links">
                 <a class="home" href="@servicesBannerLink1">@servicesBannerLinkText1</a>
                     <div class="chevron"><i class="fa-solid fa-chevron-right"></i></div>
-                <a class="home" href="@Model?.Value("projectsBannerLink2")">@Model?.Value("projectsBannerLinkText2")</a>
-                    <div class="chevron"><i class="fa-solid fa-chevron-right"></i></div>
-                <a class="activ" href="@Model?.Value("projectsBannerLink2")">@Model?.Value("projectsBannerLinkText3")</a>
+                <a class="activ" href="@Model?.Value("projectsBannerLink2")">@Model?.Value("projectsBannerLinkText2")</a>
             </div>
         </div>
     </div>
@@ -48,13 +46,13 @@
         
                 <div class="project-text">
                     <div class="text">
-                        <h4>@Model.Value("ourProjectsProject1Headline")</h4>
+                        <h4>@Model!.Value("ourProjectsProject1Headline")</h4>
                         <p class="date"><i class="fa-regular fa-calendar-days"></i> @Model.Value("ourProjectsProject1Date")</p>
                         <p>@Model.Value("ourProjectsProject1Text")</p>
                     </div>
                     <div class="button">
                         <div class="btn-light">
-                            @Model.Value("ourProjectsProject1Button") <i class="fas fa-arrow-right"></i>
+                            @Model.Value("ourProjectsProject1Btn") <i class="fas fa-arrow-right"></i>
                         </div>
                     </div>
                 </div>
@@ -72,7 +70,7 @@
                     </div>
                     <div class="button">
                         <div class="btn-light">
-                            @Model.Value("ourProjectsProject2Button") <i class="fas fa-arrow-right"></i>
+                            @Model.Value("ourProjectsProject2Btn") <i class="fas fa-arrow-right"></i>
                         </div>
                     </div>
                 </div>
@@ -90,7 +88,7 @@
                     </div>
                     <div class="button">
                         <div class="btn-light">
-                            @Model.Value("ourProjectsProject3Button") <i class="fas fa-arrow-right"></i>
+                            @Model.Value("ourProjectsProject3Btn") <i class="fas fa-arrow-right"></i>
                         </div>
                     </div>
                 </div>
@@ -108,7 +106,7 @@
                     </div>
                     <div class="button">
                         <div class="btn-light">
-                            @Model.Value("ourProjectsProject4Button") <i class="fas fa-arrow-right"></i>
+                            @Model.Value("ourProjectsProject4Btn") <i class="fas fa-arrow-right"></i>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,24 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+
+@{
+	Layout = "mainLayout.cshtml";
+ViewBag.Title = Model?.Value("pageTitle") ?? null;
+
+
+ var rootContents = UmbracoHelper.ContentAtRoot();
+ var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+var servicesBannerLinkText1 = settings?.Value<string>("servicesBannerLinkText1") ?? "";  
+
+
+ var homePage = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "homePage");
+ var projects = homePage?.Children?.FirstOrDefault(x => x.ContentType.Alias == "projectsPage");
+    var ourProjectsProject1Headline = projects?.Value<string>("ourProjectsProject1Headline") ?? "";
+
+
+}
+@* Testing att hämta objectet from en ROOT page, som är barn till Home *@
+<h1>@servicesBannerLinkText1</h1>
+
+<p>@ourProjectsProject1Headline</p>
