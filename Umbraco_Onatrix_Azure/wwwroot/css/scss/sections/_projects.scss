@@ -24,9 +24,10 @@
                     grid-template-columns: repeat(2, 1fr);
                     gap: 2rem;
                 }
+
                 &:hover .image img {
-                    transform: translateY(-3px) rotate(-2deg); 
-                    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); 
+                    transform: translateY(-3px) rotate(-2deg);
+                    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
                 }
 
 
@@ -128,7 +129,7 @@
             margin-top: 2rem;
 
             .tags {
-
+                margin-bottom: 5rem;
 
                 .tag {
                     display: inline-block;
@@ -160,17 +161,15 @@
 
                 .success-message {
                     display: flex;
-                    justify-content: center;
                     align-items: center;
-                    background-color: #5cb85c;
-                    color: var(--color-light);
+                    color: var(--color-accent);
                     font-size: 1rem;
                     font-weight: 400;
                     text-align: center;
                     margin-bottom: 1rem;
                     padding: 0.5rem;
                     border-radius: 3px;
-                    font-size: 0.7rem;
+                    font-size: 1rem;
                 }
 
                 .form {

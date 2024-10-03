@@ -1437,7 +1437,6 @@ h6 {
     z-index: 1;
     background-color: var(--color-primary);
     width: 30%;
-    /*       height: 400px;*/
   }
 }
 #about-us .container .form-container .request-box {
@@ -1505,13 +1504,13 @@ h6 {
   justify-self: center;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
+  background-color: var(--color-accent) !important;
 }
 #about-us .container .form-container .request-box .request-form .success-message {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #5cb85c;
-  color: var(--color-light);
+  color: var(--color-primary);
   font-size: 1rem;
   font-weight: 600;
   text-align: center;
@@ -2067,7 +2066,7 @@ h6 {
 }
 @media (min-width: 1400px) {
   #map .container .request-box .request-form form {
-    display: grid;
+    display: grid !important;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
   }
@@ -2101,16 +2100,26 @@ h6 {
 }
 #map .container .request-box .request-form form .form-button {
   grid-column: span 2;
-  justify-self: center;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
+  background-color: var(--color-primary) !important;
+  border: none;
+  width: 100%;
+}
+#map .container .request-box .request-form form .form-button:hover {
+  color: var(--color-light);
+}
+@media (min-width: 1400px) {
+  #map .container .request-box .request-form form .form-button {
+    width: auto;
+    justify-self: center !important;
+  }
 }
 #map .container .request-box .request-form .success-message {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #5cb85c;
-  color: var(--color-light);
+  color: var(--color-primary);
   font-size: 1rem;
   font-weight: 600;
   text-align: center;
@@ -2250,17 +2259,14 @@ h6 {
 }
 #solution-item .container .content .about-us .we-help-form .success-message, #solution-item .container .content .about-us .bg-primary .success-message {
   display: flex;
-  justify-content: center;
   align-items: center;
-  background-color: #5cb85c;
-  color: var(--color-light);
-  font-size: 1rem;
-  font-weight: 400;
+  color: var(--color-accent);
+  font-weight: 600;
   text-align: center;
   margin-bottom: 1rem;
   padding: 0.5rem;
   border-radius: 3px;
-  font-size: 0.7rem;
+  font-size: 1rem;
 }
 #solution-item .container .content .about-us .we-help-form .form form .form-input-group, #solution-item .container .content .about-us .bg-primary .form form .form-input-group {
   display: flex;
@@ -2436,6 +2442,9 @@ h6 {
   margin-bottom: 8rem;
   margin-top: 2rem;
 }
+#projects .container .nav-content .tags {
+  margin-bottom: 5rem;
+}
 #projects .container .nav-content .tags .tag {
   display: inline-block;
   padding: 8px 16px;
@@ -2462,17 +2471,15 @@ h6 {
 }
 #projects .container .nav-content .we-help-form .success-message, #projects .container .nav-content .bg-primary .success-message {
   display: flex;
-  justify-content: center;
   align-items: center;
-  background-color: #5cb85c;
-  color: var(--color-light);
+  color: var(--color-accent);
   font-size: 1rem;
   font-weight: 400;
   text-align: center;
   margin-bottom: 1rem;
   padding: 0.5rem;
   border-radius: 3px;
-  font-size: 0.7rem;
+  font-size: 1rem;
 }
 #projects .container .nav-content .we-help-form .form form .form-input-group, #projects .container .nav-content .bg-primary .form form .form-input-group {
   display: flex;
@@ -2652,6 +2659,7 @@ h6 {
 }
 #project-details .container .nav-content .tags {
   margin-top: 1rem;
+  margin-bottom: 5rem;
 }
 #project-details .container .nav-content .tags .tag {
   display: inline-block;
@@ -2678,17 +2686,15 @@ h6 {
 }
 #project-details .container .nav-content .we-help-form .success-message, #project-details .container .nav-content .bg-primary .success-message {
   display: flex;
-  justify-content: center;
   align-items: center;
-  background-color: #5cb85c;
-  color: var(--color-light);
+  color: var(--color-accent);
   font-size: 1rem;
   font-weight: 400;
   text-align: center;
   margin-bottom: 1rem;
   padding: 0.5rem;
   border-radius: 3px;
-  font-size: 0.7rem;
+  font-size: 1rem;
 }
 #project-details .container .nav-content .we-help-form .form form .form-input-group, #project-details .container .nav-content .bg-primary .form form .form-input-group {
   display: flex;

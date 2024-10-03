@@ -58,20 +58,20 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string AboutHeadline => this.Value<string>(_publishedValueFallback, "aboutHeadline");
 
 		///<summary>
-		/// About Link
+		/// About Link2
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutLink")]
-		public virtual string AboutLink => this.Value<string>(_publishedValueFallback, "aboutLink");
+		[ImplementPropertyType("aboutLink2")]
+		public virtual string AboutLink2 => this.Value<string>(_publishedValueFallback, "aboutLink2");
 
 		///<summary>
-		/// About Link Text
+		/// About Link Text2
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutLinkText")]
-		public virtual string AboutLinkText => this.Value<string>(_publishedValueFallback, "aboutLinkText");
+		[ImplementPropertyType("aboutLinkText2")]
+		public virtual string AboutLinkText2 => this.Value<string>(_publishedValueFallback, "aboutLinkText2");
 
 		///<summary>
 		/// Kevin Bank
@@ -295,7 +295,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("ourExpertsMoreExpert4Name")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops OurExpertsMoreExpert4Name => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "ourExpertsMoreExpert4Name");
+		public virtual string OurExpertsMoreExpert4Name => this.Value<string>(_publishedValueFallback, "ourExpertsMoreExpert4Name");
 
 		///<summary>
 		/// Our Experts  More Expert 4 Text
@@ -338,11 +338,59 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string TinaQuote => this.Value<string>(_publishedValueFallback, "tinaQuote");
 
 		///<summary>
-		/// Tina Text
+		/// Tina Text1
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("tinaText")]
-		public virtual string TinaText => this.Value<string>(_publishedValueFallback, "tinaText");
+		[ImplementPropertyType("tinaText1")]
+		public virtual string TinaText1 => this.Value<string>(_publishedValueFallback, "tinaText1");
+
+		///<summary>
+		/// Tina Text2
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("tinaText2")]
+		public virtual string TinaText2 => this.Value<string>(_publishedValueFallback, "tinaText2");
+
+		///<summary>
+		/// Tina Text3
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("tinaText3")]
+		public virtual string TinaText3 => this.Value<string>(_publishedValueFallback, "tinaText3");
+
+		///<summary>
+		/// Tina Text4
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("tinaText4")]
+		public virtual string TinaText4 => this.Value<string>(_publishedValueFallback, "tinaText4");
+
+		///<summary>
+		/// Tina Text5
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("tinaText5")]
+		public virtual string TinaText5 => this.Value<string>(_publishedValueFallback, "tinaText5");
+
+		///<summary>
+		/// Tina Text6
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("tinaText6")]
+		public virtual string TinaText6 => this.Value<string>(_publishedValueFallback, "tinaText6");
+
+		///<summary>
+		/// Tina Text7
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("tinaText7")]
+		public virtual string TinaText7 => this.Value<string>(_publishedValueFallback, "tinaText7");
 	}
 }

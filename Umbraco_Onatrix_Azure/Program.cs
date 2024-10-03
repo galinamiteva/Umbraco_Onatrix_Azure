@@ -1,4 +1,19 @@
+
+
+using Microsoft.EntityFrameworkCore;
+using Umbraco_Onatrix_Azure.Data;
+
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+
+string connectionString = builder.Configuration.GetConnectionString("umbracoDbDSN");
+
+builder.Services.AddUmbracoDbContext<DataContext>(options =>
+{
+    options.UseSqlServer(connectionString);
+});
+
 
 builder.CreateUmbracoBuilder()
     .AddBackOffice()

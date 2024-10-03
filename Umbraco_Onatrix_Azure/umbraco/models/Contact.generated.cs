@@ -50,11 +50,67 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
+		/// Contact Background Img
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("contactBackgroundImg")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops ContactBackgroundImg => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "contactBackgroundImg");
+
+		///<summary>
+		/// Contact Headline
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("contactHeadline")]
+		public virtual string ContactHeadline => this.Value<string>(_publishedValueFallback, "contactHeadline");
+
+		///<summary>
+		/// Contact Link2
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("contactLink2")]
+		public virtual string ContactLink2 => this.Value<string>(_publishedValueFallback, "contactLink2");
+
+		///<summary>
+		/// Contact Link Text2
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("contactLinkText2")]
+		public virtual string ContactLinkText2 => this.Value<string>(_publishedValueFallback, "contactLinkText2");
+
+		///<summary>
+		/// Contact Section Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("contactSectionTitle")]
+		public virtual string ContactSectionTitle => this.Value<string>(_publishedValueFallback, "contactSectionTitle");
+
+		///<summary>
 		/// Page Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("pageTitle")]
 		public virtual string PageTitle => this.Value<string>(_publishedValueFallback, "pageTitle");
+
+		///<summary>
+		/// Request Text - Heading
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("requestTextHeading")]
+		public virtual string RequestTextHeading => this.Value<string>(_publishedValueFallback, "requestTextHeading");
+
+		///<summary>
+		/// Request Text - Text
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("requestTextText")]
+		public virtual string RequestTextText => this.Value<string>(_publishedValueFallback, "requestTextText");
 	}
 }

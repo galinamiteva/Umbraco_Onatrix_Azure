@@ -5,7 +5,12 @@
 	Layout = "mainLayout.cshtml";
    // ViewBag.Title = Model?.Value("pageTitle") ?? null;
    ViewBag.Title = Model?.Value("heroSectionTitle")?? null;
-   
+
+    bool.TryParse(ViewData["error_name"]?.ToString()!, out bool error_name);
+    bool.TryParse(ViewData["error_email"]?.ToString()!, out bool error_email);
+    bool.TryParse(ViewData["error_phone"]?.ToString()!, out bool error_phone);
+    bool.TryParse(ViewData["error_dropdown"]?.ToString()!, out bool error_dropdown);
+
     var backgroundImage = Model?.Value<IPublishedContent>("heroBackgroundImage")?.Url() ?? "";
     var signatureImage = Model?.Value<IPublishedContent>("aboutSignatureImage")?.Url() ?? "";
     var weAreImage = Model?.Value<IPublishedContent>("weAreImage")?.Url() ?? "";
@@ -15,6 +20,7 @@
     var projectsProject2Image = Model?.Value<IPublishedContent>("projectsProject2Image")?.Url() ?? "";
     var projectsProject3Image = Model?.Value<IPublishedContent>("projectsProject3Image")?.Url() ?? "";
     var projectsProject4Image = Model?.Value<IPublishedContent>("projectsProject4Image")?.Url() ?? "";
+
 
 }
 
@@ -64,7 +70,6 @@
                 <div class="request-form">
                     <p>Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat</p>
 
-                    @* 
                     @using (Html.BeginUmbracoForm("HandleSubmit", "ContactSurface", FormMethod.Post, new { id = "contact-form" }))
                     {
                         <div class="form-input-group">
@@ -83,8 +88,7 @@
                             <select id="dropdown" name="dropdown" class="form-input">
                                 <option value="">Financial consulting</option>
                                 <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                                <option value="Maybe later">Maybe later</option>
+                                <option value="No">No</option>                                
                             </select>
                             <span class="form-input-error@((error_dropdown) ? "form-invalid-input" : null)">You must select an option</span>
                         </div>
@@ -96,8 +100,6 @@
                     {
                         <div class="success-message">@TempData["Success"]</div>
                     }
-
-                    *@
 
                 </div>
             </div>

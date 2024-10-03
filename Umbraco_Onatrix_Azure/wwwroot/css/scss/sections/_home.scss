@@ -77,7 +77,6 @@
                 z-index: 1;
                 background-color: var(--color-primary);
                 width: 30%;
-                /*       height: 400px;*/
             }
 
             .request-box {
@@ -157,6 +156,7 @@
                             justify-self: center;
                             font-weight: 600;
                             font-family: 'Poppins', sans-serif;
+                            background-color: var(--color-accent)!important;
                         }
                     }
 
@@ -164,8 +164,7 @@
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        background-color: #5cb85c;
-                        color: var(--color-light);
+                        color: var(--color-primary);
                         font-size: 1rem;
                         font-weight: 600;
                         text-align: center;

@@ -14,6 +14,12 @@
         var servicesBannerLinkText1 = settings?.Value<string>("servicesBannerLinkText1") ?? "";
         var servicesBannerLink1 = settings?.Value<string>("servicesBannerLink1") ?? "";
 
+
+    bool.TryParse(ViewData["error_name"]?.ToString()!, out bool error_name);
+    bool.TryParse(ViewData["error_email"]?.ToString()!, out bool error_email);
+    bool.TryParse(ViewData["error_phone"]?.ToString()!, out bool error_phone);
+    bool.TryParse(ViewData["error_dropdown"]?.ToString()!, out bool error_dropdown);
+
 }
 
         @*breadcrumb navigation*@
@@ -56,9 +62,39 @@
 
         <div class="request-form">
 
-            
-
+    @using (Html.BeginUmbracoForm("HandleSubmit", "ContactSurface", FormMethod.Post, new { id = "contact-form" }))
+    {
+        <div class="form-input-group">
+            <input id="name" name="name" type="text" placeholder="Name" class="form-input" value="@ViewData["name"]">
+            <span class="form-input-error@((error_name) ? "form-invalid-input": null)">You must enter your name</span>
         </div>
+        <div class="form-input-group">
+            <input id="phone" name="phone" type="text" placeholder="Phone" class="form-input" value="@ViewData["phone"]">
+            <span class="form-input-error@((error_phone) ? "form-invalid-input" : null)">You must enter a valid phone number</span>
+        </div>
+        <div class="form-input-group">
+            <input id="email" name="email" type="email" placeholder="Email address" class="form-input" value="@ViewData["email"]">
+            <span class="form-input-error@((error_email) ? "form-invalid-input" : null)">You must enter a valid e-mail address</span>
+        </div>
+        <div class="form-input-group">
+            <select id="dropdown" name="dropdown" class="form-input">
+                <option value="">Financial consulting</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                
+            </select>
+            <span class="form-input-error@((error_dropdown) ? "form-invalid-input" : null)">You must select an option</span>
+        </div>
+        <button type="submit" class="form-button btn-submit btn btn-primary">Submit</button>
+
+    }
+
+    @if (TempData["success"] != null)
+    {
+        <div class="success-message">@TempData["Success"]</div>
+    }
+
+</div>
 
         
     </div>

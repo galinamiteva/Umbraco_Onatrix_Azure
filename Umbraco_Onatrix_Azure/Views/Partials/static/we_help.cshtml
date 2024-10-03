@@ -1,0 +1,44 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+
+@{
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+
+    var weHelpImg = settings?.Value<IPublishedContent>("weHelpImg")?.Url() ?? "";
+
+    var weHelpHeadline = settings?.Value<string>("weHelpHeadline") ?? "";
+    var weHelpText = settings?.Value<string>("weHelpText") ?? "";
+    
+    bool.TryParse(ViewData["error_email"]?.ToString()!, out bool error_email);
+
+}
+
+<div id="wehelp-form-container" class="we-help-form bg-primary">
+    <h4>@weHelpHeadline</h4>
+    <p>@weHelpText</p>
+
+        @if (TempData["success"] != null)
+        {
+            <div class="success-message">@TempData["Success"]</div>
+        }
+        
+    <div class="form">
+        @using (Html.BeginUmbracoForm("HandleSubmit", "WeHelpSurface", FormMethod.Post, new { id = "wehelp-form"}))
+        {
+            <div class="form-input-group">
+                <span class="form-input-error@((error_email) ? "form-invalid-input" : null)">You must enter a valid e-mail address</span>
+                <input id="email" name="email" type="email" placeholder="Enter your e-mail address" class="form-input">
+            </div>                   
+            <button type="submit" class="btn-we-help">
+                <i class="fa-regular fa-envelope"></i>
+            </button>
+        }
+    </div>
+
+
+    <div class="image">
+        <img src="@weHelpImg" alt="Image of form content">
+    </div>
+</div>

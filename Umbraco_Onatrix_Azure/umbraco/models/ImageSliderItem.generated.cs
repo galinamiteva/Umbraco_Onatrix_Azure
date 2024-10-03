@@ -18,14 +18,14 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	/// <summary>Services Page</summary>
-	[PublishedModel("servicesPage")]
-	public partial class ServicesPage : PublishedContentModel
+	/// <summary>Image Slider Item</summary>
+	[PublishedModel("imageSliderItem")]
+	public partial class ImageSliderItem : PublishedElementModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
-		public new const string ModelTypeAlias = "servicesPage";
+		public new const string ModelTypeAlias = "imageSliderItem";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
@@ -34,14 +34,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<ServicesPage, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<ImageSliderItem, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public ServicesPage(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+		public ImageSliderItem(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,35 +50,34 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Page Title
+		/// Image Description
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("pageTitle")]
-		public virtual string PageTitle => this.Value<string>(_publishedValueFallback, "pageTitle");
+		[ImplementPropertyType("imageDescription")]
+		public virtual string ImageDescription => this.Value<string>(_publishedValueFallback, "imageDescription");
 
 		///<summary>
-		/// Services Banner  Headline
+		/// Image Link Url
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("servicesBannerHeadline")]
-		public virtual string ServicesBannerHeadline => this.Value<string>(_publishedValueFallback, "servicesBannerHeadline");
+		[ImplementPropertyType("imageLinkUrl")]
+		public virtual string ImageLinkUrl => this.Value<string>(_publishedValueFallback, "imageLinkUrl");
 
 		///<summary>
-		/// Services Banner  Link 2
+		/// Link is External 
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("servicesBannerLink2")]
-		public virtual string ServicesBannerLink2 => this.Value<string>(_publishedValueFallback, "servicesBannerLink2");
+		[ImplementPropertyType("linkIsExternal")]
+		public virtual bool LinkIsExternal => this.Value<bool>(_publishedValueFallback, "linkIsExternal");
 
 		///<summary>
-		/// Services Banner  Link Text 2
+		/// Selected Image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("servicesBannerLinkText2")]
-		public virtual string ServicesBannerLinkText2 => this.Value<string>(_publishedValueFallback, "servicesBannerLinkText2");
+		[ImplementPropertyType("selectedImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops SelectedImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "selectedImage");
 	}
 }
