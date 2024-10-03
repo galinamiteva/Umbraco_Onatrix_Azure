@@ -12,4 +12,6 @@ public class DataContext : DbContext
 
     public DbSet<ContactFormEntry> ContactFormEntries { get; set; }
     public DbSet<WeModel> WeHelpModels { get; set; }
+
+    public DbSet<QuestionModel> QuestionModels { get; set; }
 }

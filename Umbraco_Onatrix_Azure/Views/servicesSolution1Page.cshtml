@@ -15,6 +15,10 @@
 
     var mainContentImg1 = Model?.Value<IPublishedContent>("mainContentImg1")?.Url() ?? "";   
     var mainContentImg2 = Model?.Value<IPublishedContent>("mainContentImg2")?.Url() ?? "";  
+
+    bool.TryParse(ViewData["error_name"]?.ToString()!, out bool error_name);
+    bool.TryParse(ViewData["error_email"]?.ToString()!, out bool error_email);
+    bool.TryParse(ViewData["error_message"]?.ToString()!, out bool error_message);
 }
 
                     @*breadcrumb navigation*@
@@ -63,5 +67,45 @@
 
     </div>
 </section>
+
+<section id="question">
+    
+        <div class="question-box bg-light container">
+            <div class="question-text">
+                <h4>Have a question?</h4>
+            </div>
+
+
+            <div class="question-form">
+
+                @using (Html.BeginUmbracoForm("HandleSubmit", "QuestionSurface", FormMethod.Post, new { id = "question-form" }))
+                {
+                    <div class="form-input-group">
+                        <input id="name" name="name" type="text" placeholder="Name" class="form-input" value="@ViewData["name"]">
+                        <span class="form-input-error@((error_name) ? "form-invalid-input": null)">Please enter your name</span>
+                    </div>
+
+                    <div class="form-input-group">
+                        <input id="email" name="email" type="email" placeholder="Email" class="form-input" value="@ViewData["email"]">
+                        <span class="form-input-error@((error_email) ? "form-invalid-input" : null)">Please enter a valid e-mail address</span>
+                    </div>
+                    <div class="form-input-group">
+                        <textarea id="message" name="message" type="area" placeholder="Question" class="form-input" value="@ViewData["message"]"></textarea>
+                        <span class="form-input-error@((error_message) ? "form-invalid-input" : null)">Please write a question</span>
+                    </div>
+                    <button type="submit" class="form-button btn-submit btn btn-secondary">Submit</button>
+
+                }
+
+                @if (TempData["success"] != null)
+                {
+                    <div class="success-message">@TempData["Success"]</div>
+                }
+
+            </div>
+        </div>
+    
+</section>
+
 
 @await Html.PartialAsync("partials/static/next-project.cshtml")

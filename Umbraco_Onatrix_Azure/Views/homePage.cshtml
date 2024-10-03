@@ -25,7 +25,7 @@
 }
 
 
-<section id="heru-slider" class="hero">
+<section id="hero-slider" class="hero">
     
     <div class="background" style="background-image:url(@backgroundImage);background-size: cover; background-position: 60%">
         <div class="container">
@@ -74,15 +74,15 @@
                     {
                         <div class="form-input-group">
                             <input id="name" name="name" type="text" placeholder="Name" class="form-input" value="@ViewData["name"]">
-                            <span class="form-input-error@((error_name) ? "form-invalid-input": null)">You must enter your name</span>
+                            <span class="form-input-error@((error_name) ? "form-invalid-input": null)">Please enter your name</span>
                         </div>
                         <div class="form-input-group">
                             <input id="phone" name="phone" type="text" placeholder="Phone" class="form-input" value="@ViewData["phone"]">
-                            <span class="form-input-error@((error_phone) ? "form-invalid-input" : null)">You must enter a valid phone number</span>
+                            <span class="form-input-error@((error_phone) ? "form-invalid-input" : null)">Please enter a valid phone number</span>
                         </div>
                         <div class="form-input-group">
                             <input id="email" name="email" type="email" placeholder="Email address" class="form-input" value="@ViewData["email"]">
-                            <span class="form-input-error@((error_email) ? "form-invalid-input" : null)">You must enter a valid e-mail address</span>
+                            <span class="form-input-error@((error_email) ? "form-invalid-input" : null)">Please enter a valid e-mail address</span>
                         </div>
                         <div class="form-input-group">
                             <select id="dropdown" name="dropdown" class="form-input">
@@ -90,7 +90,7 @@
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>                                
                             </select>
-                            <span class="form-input-error@((error_dropdown) ? "form-invalid-input" : null)">You must select an option</span>
+                            <span class="form-input-error@((error_dropdown) ? "form-invalid-input" : null)">Please select an option</span>
                         </div>
                         <button type="submit" class="form-button btn-submit btn btn-secondary">Submit</button>
 
