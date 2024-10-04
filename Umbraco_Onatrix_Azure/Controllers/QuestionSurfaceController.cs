@@ -51,11 +51,10 @@ public class QuestionSurfaceController(IUmbracoContextAccessor umbracoContextAcc
         // Skicka e-postbekräftelse
         await SendConfirmationEmailAsync(form.Email);
 
-        //TempData["success"] = "submitted successfully.";
-        //return RedirectToCurrentUmbracoPage();
-        return Redirect("/confirm");
+       
+        TempData["success"] = "submitted successfully.";
+        return RedirectToCurrentUmbracoPage();
 
-        
     }
     private async Task SendConfirmationEmailAsync(string toEmail)
     {
