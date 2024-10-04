@@ -1,124 +1,117 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
-
+@using Microsoft.AspNetCore.Http
 
 @{
-	Layout = "mainLayout.cshtml";
+    Layout = "mainLayout.cshtml";
 
-	 ViewBag.Title = Model?.Value("pageTitle") ?? null;
-	var rootContents = UmbracoHelper.ContentAtRoot();
-	var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+    ViewBag.Title = Model?.Value("pageTitle") ?? null;
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
 
-	var servicesBannerBackground = settings?.Value<IPublishedContent>("servicesBannerBackground")?.Url() ?? "";     
-	var servicesBannerLinkText1 = settings?.Value<string>("servicesBannerLinkText1") ?? "";  
-	var servicesBannerLink1 = settings?.Value<string>("servicesBannerLink1") ?? "";     
+    var servicesBannerBackground = settings?.Value<IPublishedContent>("servicesBannerBackground")?.Url() ?? "";
+    var servicesBannerLinkText1 = settings?.Value<string>("servicesBannerLinkText1") ?? "";
+    var servicesBannerLink1 = settings?.Value<string>("servicesBannerLink1") ?? "";
 
-	var ourProjectsProject1Img = Model?.Value<IPublishedContent>("ourProjectsProject1Img")?.Url() ?? "";   
-	var ourProjectsProject2Img = Model?.Value<IPublishedContent>("ourProjectsProject2Img")?.Url() ?? "";
-	var ourProjectsProject3Img = Model?.Value<IPublishedContent>("ourProjectsProject3Img")?.Url() ?? "";
-	var ourProjectsProject4Img = Model?.Value<IPublishedContent>("ourProjectsProject4Img")?.Url() ?? "";
+    var ourProjectsProject1Img = Model?.Value<IPublishedContent>("ourProjectsProject1Img")?.Url() ?? "";
+    var ourProjectsProject2Img = Model?.Value<IPublishedContent>("ourProjectsProject2Img")?.Url() ?? "";
+    var ourProjectsProject3Img = Model?.Value<IPublishedContent>("ourProjectsProject3Img")?.Url() ?? "";
+    var ourProjectsProject4Img = Model?.Value<IPublishedContent>("ourProjectsProject4Img")?.Url() ?? "";
+    var ourProjectsProject5Img = Model?.Value<IPublishedContent>("ourProjectsProject5Img")?.Url() ?? "";
+    var ourProjectsProject6Img = Model?.Value<IPublishedContent>("ourProjectsProject6Img")?.Url() ?? "";
 
+    var currentPage = 1;
+    var pageNumbers = 4;
+    var query = Context.Request.Query["page"].ToString();
+    
+
+
+    if (!string.IsNullOrWhiteSpace(query) && int.TryParse(query, out int page))
+    {
+        currentPage = page > 0 ? page : 1;
+    }
+
+    var projects = new List<dynamic>
+    {
+        new {  Headline = Model!.Value("ourProjectsProject1Headline"), Date = Model!.Value("ourProjectsProject1Date"),Image = ourProjectsProject1Img, Text = Model!.Value("ourProjectsProject1Text"), Link = Model!.Value("ourProjectsProject1Link") },
+        new {  Headline = Model!.Value("ourProjectsProject2Headline"), Date = Model!.Value("ourProjectsProject2Date"), Image = ourProjectsProject2Img,Text = Model!.Value("ourProjectsProject2Text"), Link = Model!.Value("ourProjectsProject2Link") },
+        new {  Headline = Model!.Value("ourProjectsProject3Headline"), Date = Model!.Value("ourProjectsProject3Date"),Image = ourProjectsProject3Img, Text = Model!.Value("ourProjectsProject3Text"), Link = Model!.Value("ourProjectsProject3Link") },
+        new {  Headline = Model!.Value("ourProjectsProject4Headline"), Date = Model!.Value("ourProjectsProject4Date"),Image = ourProjectsProject4Img, Text = Model!.Value("ourProjectsProject4Text"), Link = Model!.Value("ourProjectsProject4Link") },
+        new {  Headline = Model!.Value("ourProjectsProject5Headline"), Date = Model!.Value("ourProjectsProject5Date"),Image = ourProjectsProject5Img, Text = Model!.Value("ourProjectsProject5Text"), Link = Model!.Value("ourProjectsProject5Link") },
+        new {  Headline = Model!.Value("ourProjectsProject6Headline"), Date = Model!.Value("ourProjectsProject6Date"), Image = ourProjectsProject6Img,Text = Model!.Value("ourProjectsProject6Text"), Link = Model!.Value("ourProjectsProject6Link") }
+
+    };
+
+    var pagedProjects = projects.Skip((currentPage - 1) * pageNumbers).Take(pageNumbers);
+
+    @*Umbraco pagination ---> https://www.youtube.com/watch?v=K5zHGOE-LZE*@
 }
 
-        @*breadcrumb navigation*@
- <section id="contact" class="banner bg-gray">
-    <div class="background"> 
+
+@*breadcrumb navigation*@
+<section id="contact" class="banner bg-gray">
+    <div class="background">
         <img src="@servicesBannerBackground" alt="Backround image">
         <div class="content">
             <h2>@Model?.Value("projectsBannerHeadline")</h2>
             <div class="links">
                 <a class="home" href="@servicesBannerLink1">@servicesBannerLinkText1</a>
-                    <div class="chevron"><i class="fa-solid fa-chevron-right"></i></div>
+                <div class="chevron"><i class="fa-solid fa-chevron-right"></i></div>
                 <a class="activ" href="@Model?.Value("projectsBannerLink2")">@Model?.Value("projectsBannerLinkText2")</a>
             </div>
         </div>
     </div>
 </section>
 
+
 <section id="projects">
-	<div class="container">
-		<div class="our-projects">
-            <a href="@Model!.Value("ourProjectsProject1Link")">
-                <div class="image">
-                    <img src="@ourProjectsProject1Img" alt="">
-                </div>
-        
-                <div class="project-text">
-                    <div class="text">
-                        <h4>@Model!.Value("ourProjectsProject1Headline")</h4>
-                        <p class="date"><i class="fa-regular fa-calendar-days"></i> @Model.Value("ourProjectsProject1Date")</p>
-                        <p>@Model.Value("ourProjectsProject1Text")</p>
+    <div class="container">
+
+        <div class="our-projects">
+            
+
+
+            @foreach (var item in pagedProjects)
+            {
+                <a href="@item.Link">
+                    <div class="image">
+                        <img src="@item.Image" alt="">
                     </div>
-                    <div class="button">
-                        <div class="btn-light">
-                            @Model.Value("ourProjectsProject1Btn") <i class="fas fa-arrow-right"></i>
+                    <div class="project-text">
+                        <div class="text">
+                            <h4>@item.Headline</h4>
+                            <p class="date"><i class="fa-regular fa-calendar-days"></i> @item.Date</p>
+                            <p>@item.Text</p>
+                        </div>
+                        <div class="button">
+                            <div class="btn-light">
+                                Read more <i class="fas fa-arrow-right"></i>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            }
 
-            <a href="@Model.Value("ourProjectsProject2Link")">
-                <div class="image">
-                    <img src="@ourProjectsProject2Img" alt="">
-                </div>
-                <div class="project-text">
-                    <div class="text">
-                        <h4>@Model.Value("ourProjectsProject2Headline")</h4>
-                        <p class="date"><i class="fa-regular fa-calendar-days"></i> @Model.Value("ourProjectsProject2Date")</p>
-                        <p>@Model.Value("ourProjectsProject2Text")</p>
-                    </div>
-                    <div class="button">
-                        <div class="btn-light">
-                            @Model.Value("ourProjectsProject2Btn") <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </div>
-            </a>
+            
 
-            <a href="@Model.Value("ourProjectsProject3Link")">
-                <div class="image">
-                    <img src="@ourProjectsProject3Img" alt="">
-                </div>
-                <div class="project-text">
-                    <div class="text">
-                        <h4>@Model.Value("ourProjectsProject3Headline")</h4>
-                        <p class="date"><i class="fa-regular fa-calendar-days"></i> @Model.Value("ourProjectsProject3Date")</p>
-                        <p>@Model.Value("ourProjectsProject3Text")</p>
-                    </div>
-                    <div class="button">
-                        <div class="btn-light">
-                            @Model.Value("ourProjectsProject3Btn") <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </div>
-            </a>
+           @*  funkar inte så bra *@
 
-            <a href="@Model.Value("ourProjectsProject4Link")" class="last-box">
-                <div class="image">
-                    <img src="@ourProjectsProject4Img" alt="">
-                </div>
-                <div class="project-text">
-                    <div class="text">
-                        <h4>@Model.Value("ourProjectsProject4Headline")</h4>
-                        <p class="date"><i class="fa-regular fa-calendar-days"></i> @Model.Value("ourProjectsProject4Date")</p>
-                        <p>@Model.Value("ourProjectsProject4Text")</p>
-                    </div>
-                    <div class="button">
-                        <div class="btn-light">
-                            @Model.Value("ourProjectsProject4Btn") <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </div>
-            </a>
+            <div class="pagination">
+                <a href="?page=@(currentPage - 1)" class="prev @(currentPage > 1 ? null : "disabled")">Prev</a>
 
-            <div class="pagnaition">
-                <a href="#" class="prev">Prev</a>
-                <a href="#" class="one">1</a>
-                <a href="#" class="two">2</a>
-                <a href="#" class="next">Next</a>
+                @for (var i = 1; i <= Math.Ceiling((double)projects.Count / pageNumbers); i++)
+                {
+                    <a href="?page=@i" class="@(i == currentPage ? "active" : null) @($"page-{i}")">@i</a>
+                }
+
+                <a href="?page=@(currentPage + 1)" class="next @(currentPage < Math.Ceiling((double)projects.Count / pageNumbers) ? null : "disabled")">Next</a>
             </div>
+
+
         </div>
+
+
         <div class="nav-content">
             @await Html.PartialAsync("partials/static/tags.cshtml")
             @await Html.PartialAsync("partials/static/we_help.cshtml")

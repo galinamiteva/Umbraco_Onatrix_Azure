@@ -2187,14 +2187,14 @@ h6 {
   padding: 1rem;
 }
 
-.pagnaition {
+.pagination {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
   margin-bottom: 3rem;
 }
-.pagnaition a {
+.pagination a {
   text-decoration: none;
   font-weight: 600;
   color: var(--color-primary);
@@ -2204,18 +2204,18 @@ h6 {
   border-radius: 999px;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
-.pagnaition a:hover {
+.pagination a:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
-.pagnaition .prev {
+.pagination .prev {
   border: none;
   color: var(--color-border-gray);
 }
-.pagnaition .two {
+.pagination .two {
   border: none;
 }
-.pagnaition .next {
+.pagination .next {
   border: none;
 }
 
@@ -2602,37 +2602,44 @@ h6 {
 #projects .container .our-projects .last-box {
   border-bottom: none;
 }
-#projects .container .our-projects .pagnaition {
+#projects .container .our-projects .pagination {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
   margin-bottom: 3rem;
+  margin-top: 3rem;
 }
-#projects .container .our-projects .pagnaition a {
+#projects .container .our-projects .pagination a {
   display: inline;
   text-decoration: none;
   font-weight: 600;
   color: var(--color-primary);
   background-color: var(--color-light);
   padding: 0.5rem 1rem;
-  border: 1px solid var(--color-note);
+  border: 1px solid var(--color-gray);
   border-radius: 999px;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
-#projects .container .our-projects .pagnaition a:hover {
+#projects .container .our-projects .pagination a.active {
+  border: 1px solid var(--color-note);
+}
+#projects .container .our-projects .pagination a.prev, #projects .container .our-projects .pagination a.next {
+  border: none;
+  color: var(--color-dark);
+}
+#projects .container .our-projects .pagination a.disabled {
+  pointer-events: none;
+  color: var(--color-note);
+  opacity: 0.6;
+}
+#projects .container .our-projects .pagination a.disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+#projects .container .our-projects .pagination a:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-}
-#projects .container .our-projects .pagnaition .prev {
-  border: none;
-  color: var(--color-note);
-}
-#projects .container .our-projects .pagnaition .two {
-  border: none;
-}
-#projects .container .our-projects .pagnaition .next {
-  border: none;
 }
 #projects .container .nav-content {
   grid-column: span 3;

@@ -1,44 +1,70 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+@using Microsoft.AspNetCore.Http
+
 @{
     var rootContents = UmbracoHelper.ContentAtRoot();
     var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
-    var currentPageUrl = Model.Url();
-    var isServicesPage = currentPageUrl.Contains("/services");
+    var currentPageLink = Model.Url();
+    var isServicesPage = currentPageLink.Contains("/services");
 
 
-    var serviceSolution1Image = settings?.Value<IPublishedContent>("serviceSolution1Image")?.Url() ?? "";
-    var serviceSolution1Link = settings?.Value<string>("serviceSolution1Link") ?? "";
-    var serviceSolution1Headline = settings?.Value<string>("serviceSolution1Headline") ?? "";
-    var serviceSolution1Text = settings?.Value<string>("serviceSolution1Text") ?? "";
+    var serviceSolution1Image = settings?.Value<IPublishedContent>("serviceSolution1Image")?.Url() ?? null;
+    var serviceSolution1Link = settings?.Value<string>("serviceSolution1Link") ?? null;
+    var serviceSolution1Headline = settings?.Value<string>("serviceSolution1Headline") ?? null;
+    var serviceSolution1Text = settings?.Value<string>("serviceSolution1Text") ?? null;
+    var serviceSolution2Image = settings?.Value<IPublishedContent>("serviceSolution2Image")?.Url() ?? null;
+    var serviceSolution2Link = settings?.Value<string>("serviceSolution2Link") ?? null;
+    var serviceSolution2Headline = settings?.Value<string>("serviceSolution2Headline") ?? null;
+    var serviceSolution2Text = settings?.Value<string>("serviceSolution2Text") ?? null;
+    var serviceSolution3Image = settings?.Value<IPublishedContent>("serviceSolution3Image")?.Url() ?? null;
+    var serviceSolution3Link = settings?.Value<string>("serviceSolution3Link") ?? null;
+    var serviceSolution3Headline = settings?.Value<string>("serviceSolution3Headline") ?? null;
+    var serviceSolution3Text = settings?.Value<string>("serviceSolution3Text") ?? null;
+    var serviceSolution4Image = settings?.Value<IPublishedContent>("serviceSolution4Image")?.Url() ?? null;
+    var serviceSolution4Link = settings?.Value<string>("serviceSolution4Link") ?? null;
+    var serviceSolution4Headline = settings?.Value<string>("serviceSolution4Headline") ?? null;
+    var serviceSolution4Text = settings?.Value<string>("serviceSolution4Text") ?? null;
+    var serviceSolution5Image = settings?.Value<IPublishedContent>("serviceSolution5Image")?.Url() ?? null;
+    var serviceSolution5Link = settings?.Value<string>("serviceSolution5Link") ?? null;
+    var serviceSolution5Headline = settings?.Value<string>("serviceSolution5Headline") ?? null;
+    var serviceSolution5Text = settings?.Value<string>("serviceSolution5Text") ?? null;
+    var serviceSolution6Image = settings?.Value<IPublishedContent>("serviceSolution6Image")?.Url() ?? null;
+    var serviceSolution6Link = settings?.Value<string>("serviceSolution6Link") ?? null;
+    var serviceSolution6Headline = settings?.Value<string>("serviceSolution6Headline") ?? null;
+    var serviceSolution6Text = settings?.Value<string>("serviceSolution6Text") ?? null;
+    var serviceSolution7Image = settings?.Value<IPublishedContent>("serviceSolution7Image")?.Url() ?? null;
+    var serviceSolution7Link = settings?.Value<string>("serviceSolution7Link") ?? null;
+    var serviceSolution7Headline = settings?.Value<string>("serviceSolution7Headline") ?? null;
+    var serviceSolution7Text = settings?.Value<string>("serviceSolution7Text") ?? null;
+
     
-    var serviceSolution2Image = settings?.Value<IPublishedContent>("serviceSolution2Image")?.Url() ?? "";
-    var serviceSolution2Link = settings?.Value<string>("serviceSolution2Link") ?? "";
-    var serviceSolution2Headline = settings?.Value<string>("serviceSolution2Headline") ?? "";
-    var serviceSolution2Text = settings?.Value<string>("serviceSolution2Text") ?? "";
+    @*Umbraco pagination ---> https://www.youtube.com/watch?v=K5zHGOE-LZE    , men funkar inte helt bra*@
 
-    var serviceSolution3Image = settings?.Value<IPublishedContent>("serviceSolution3Image")?.Url() ?? "";
-    var serviceSolution3Link = settings?.Value<string>("serviceSolution3Link") ?? "";
-    var serviceSolution3Headline = settings?.Value<string>("serviceSolution3Headline") ?? "";
-    var serviceSolution3Text = settings?.Value<string>("serviceSolution3Text") ?? "";
+    var pageSize = 6;
+    var query = Context.Request.Query["page"].ToString();
+    var currentPage = 1;
 
-    var serviceSolution4Image = settings?.Value<IPublishedContent>("serviceSolution4Image")?.Url() ?? "";
-    var serviceSolution4Link = settings?.Value<string>("serviceSolution4Link") ?? "";
-    var serviceSolution4Headline = settings?.Value<string>("serviceSolution4Headline") ?? "";
-    var serviceSolution4Text = settings?.Value<string>("serviceSolution4Text") ?? "";
+    if (!string.IsNullOrWhiteSpace(query) && int.TryParse(query, out int page))
+    {
+        currentPage = page > 0 ? page : 1;
+    }
+    var services = new List<dynamic>
+    {
+        new {  Link = serviceSolution1Link, Headline = serviceSolution1Headline, Image = serviceSolution1Image, Text = serviceSolution1Text },
+        new {  Link = serviceSolution2Link, Headline = serviceSolution2Headline, Image = serviceSolution2Image, Text = serviceSolution2Text },
+        new {  Link = serviceSolution3Link, Headline = serviceSolution3Headline, Image = serviceSolution3Image, Text = serviceSolution3Text },
+        new {  Link = serviceSolution4Link, Headline = serviceSolution4Headline, Image = serviceSolution4Image, Text = serviceSolution4Text },
+        new {  Link = serviceSolution5Link, Headline = serviceSolution5Headline, Image = serviceSolution5Image, Text = serviceSolution5Text },
+        new {  Link = serviceSolution6Link, Headline = serviceSolution6Headline, Image = serviceSolution6Image, Text = serviceSolution6Text },
+        new {  Link = serviceSolution7Link, Headline = serviceSolution7Headline, Image = serviceSolution7Image, Text = serviceSolution7Text },
 
-    var serviceSolution5Image = settings?.Value<IPublishedContent>("serviceSolution5Image")?.Url() ?? "";
-    var serviceSolution5Link = settings?.Value<string>("serviceSolution5Link") ?? "";
-    var serviceSolution5Headline = settings?.Value<string>("serviceSolution5Headline") ?? "";
-    var serviceSolution5Text = settings?.Value<string>("serviceSolution5Text") ?? "";
+    };
 
-    var serviceSolution6Image = settings?.Value<IPublishedContent>("serviceSolution6Image")?.Url() ?? "";
-    var serviceSolution6Link = settings?.Value<string>("serviceSolution6Link") ?? "";
-    var serviceSolution6Headline = settings?.Value<string>("serviceSolution6Headline") ?? "";
-    var serviceSolution6Text = settings?.Value<string>("serviceSolution6Text") ?? "";
 
-  
+    var paginatedServices = services.Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();
+
 
 }
 
@@ -52,67 +78,39 @@
             <h2>@Model?.Value("servicesTitle2Row")</h2>
             
             <div class="solution">
-                <a href="@serviceSolution1Link">
-                    <div class="solution-item">
-                        <h5>@serviceSolution1Headline</h5>
-                        <div class="image">
-                            <img src="@serviceSolution1Image" alt="Image of @serviceSolution1Headline">
+                @foreach (var service in paginatedServices)
+                {
+                    <a href="@service.Link">
+                        <div class="solution-item">
+                            <h5>@service.Headline</h5>
+                            <div class="image">
+                                <img src="@service.Image" alt="Image of @service.Headline">
+                            </div>
+                            <p>@service.Text</p>
                         </div>
-                        <p>@serviceSolution1Text</p>
-                    </div>
-                </a>
-               <a href="@serviceSolution2Link">
-                    <div class="solution-item">
-                        <h5>@serviceSolution2Headline</h5>
-                        <div class="image">
-                            <img src="@serviceSolution2Image" alt="Image of @serviceSolution2Headline">
-                        </div>
-                        <p>@serviceSolution2Text</p>
-                    </div>
-                </a>
-
-                <a href="@serviceSolution3Link">
-                    <div class="solution-item">
-                        <h5>@serviceSolution3Headline</h5>
-                        <div class="image">
-                            <img src="@serviceSolution3Image" alt="Image of @serviceSolution3Headline">
-                        </div>
-                        <p>@serviceSolution3Text</p>
-                    </div>
-                </a>
-
-                <a href="@serviceSolution4Link">
-                    <div class="solution-item">
-                        <h5>@serviceSolution4Headline</h5>
-                        <div class="image">
-                            <img src="@serviceSolution4Image" alt="Image of @serviceSolution4Headline">
-                        </div>
-                        <p>@serviceSolution4Text</p>
-                    </div>
-                </a>
-
-                <a href="@serviceSolution5Link">
-                    <div class="solution-item">
-                        <h5>@serviceSolution5Headline</h5>
-                        <div class="image">
-                            <img src="@serviceSolution5Image" alt="Image of @serviceSolution5Headline">
-                        </div>
-                        <p>@serviceSolution5Text</p>
-                    </div>
-                </a>
-
-                <a href="@serviceSolution6Link">
-                    <div class="solution-item">
-                        <h5>@serviceSolution6Headline</h5>
-                        <div class="image">
-                            <img src="@serviceSolution6Image" alt="Image of @serviceSolution6Headline">
-                        </div>
-                        <p>@serviceSolution6Text</p>
-                    </div>
-                </a>
+                    </a>
+                }
 
             </div>
         </div>
     </div>
 </section>
+
+
+@if (isServicesPage)
+{
+    <div class="pagination">
+        <a href="?page=@(currentPage - 1)" class="prev @(currentPage > 1 ? "" : "disabled")">Prev</a>
+
+        @for (var i = 1; i <= Math.Ceiling((double)services.Count / pageSize); i++)
+        {
+            <a href="?page=@i" class="@(i == currentPage ? "active" : "") @($"page-{i}")">@i</a>
+        }
+
+        <a href="?page=@(currentPage + 1)" class="next @(currentPage < Math.Ceiling((double)services.Count / pageSize) ? "" : "disabled")">Next</a>
+    </div>
+}
+
+
+
         
