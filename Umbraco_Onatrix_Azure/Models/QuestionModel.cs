@@ -11,7 +11,8 @@ public class QuestionModel
     public string Name { get; set; } = null!;
     [Required]
     [EmailAddress]
+   
+    public DateTime Date { get; set; } = DateTime.Now;
     public string Email { get; set; } = null!;
     public string Message { get; set; } = null!;
-    public DateTime Date { get; set; } = DateTime.Now;
 }

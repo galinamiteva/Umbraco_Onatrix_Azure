@@ -12,8 +12,9 @@ public class WeModel
 
     [Required]
     [EmailAddress]
-    public string Email { get; set; } = null!;
+   
 
     public DateTime Date { get; set; } = DateTime.Now;
+    public string Email { get; set; } = null!;
 
 }

@@ -5,12 +5,12 @@
 @{
     var rootContents = UmbracoHelper.ContentAtRoot();
     var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
-    var partnersImg1 = settings?.Value<IPublishedContent>("partnersImg1")?.Url() ?? "";
-    var partnersImg2 = settings?.Value<IPublishedContent>("partnersImg2")?.Url() ?? "";
-    var partnersImg3 = settings?.Value<IPublishedContent>("partnersImg3")?.Url() ?? "";
-    var partnersImg4 = settings?.Value<IPublishedContent>("partnersImg4")?.Url() ?? "";
-    var partnersImg5 = settings?.Value<IPublishedContent>("partnersImg5")?.Url() ?? "";
-    var partnersImg6 = settings?.Value<IPublishedContent>("partnersImg6")?.Url() ?? "";
+    var partnersImg1 = settings?.Value<IPublishedContent>("partnersImg1")?.Url() ?? null;
+    var partnersImg2 = settings?.Value<IPublishedContent>("partnersImg2")?.Url() ?? null;
+    var partnersImg3 = settings?.Value<IPublishedContent>("partnersImg3")?.Url() ?? null;
+    var partnersImg4 = settings?.Value<IPublishedContent>("partnersImg4")?.Url() ?? null;
+    var partnersImg5 = settings?.Value<IPublishedContent>("partnersImg5")?.Url() ?? null;
+    var partnersImg6 = settings?.Value<IPublishedContent>("partnersImg6")?.Url() ?? null;
 
 
 }

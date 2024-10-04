@@ -5,24 +5,22 @@
 @{
     var rootContents = UmbracoHelper.ContentAtRoot();
     var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
-    var nextProjectTextHeadline = settings?.Value<string>("nextProjectTextHeadline") ?? "";
-    var officeLocation = settings?.Value<string>("officeLocation") ?? "";
-    var officePhoneNumber = settings?.Value<string>("officePhoneNumber") ?? "";
-    var officeEmailAddress = settings?.Value<string>("officeEmailAddress") ?? "";
-
-    var nextProjectTextLocation = settings?.Value<string>("nextProjectTextLocation") ?? "";
-    var nextProjectTextPhone = settings?.Value<string>("nextProjectTextPhone") ?? "";
-    var nextProjectTextEmail = settings?.Value<string>("nextProjectTextEmail") ?? "";
-
-    var nextProjectImgHuman = settings?.Value<IPublishedContent>("nextProjectImgHuman")?.Url() ?? "";
-    var nextProjectImgBackground = settings?.Value<IPublishedContent>("nextProjectImgBackground")?.Url() ?? "";
-    var nextProjectImgDot = settings?.Value<IPublishedContent>("nextProjectImgDot")?.Url() ?? "";
+    var nextProjectTextHeadline = settings?.Value<string>("nextProjectTextHeadline") ?? null;
+    var officeLocation = settings?.Value<string>("officeLocation") ?? null;
+    var officePhoneNumber = settings?.Value<string>("officePhoneNumber") ?? null;
+    var officeEmailAddress = settings?.Value<string>("officeEmailAddress") ?? null;
+    var nextProjectTextLocation = settings?.Value<string>("nextProjectTextLocation") ?? null;
+    var nextProjectTextPhone = settings?.Value<string>("nextProjectTextPhone") ?? null;
+    var nextProjectTextEmail = settings?.Value<string>("nextProjectTextEmail") ?? null;
+    var nextProjectImgHuman = settings?.Value<IPublishedContent>("nextProjectImgHuman")?.Url() ?? null;
+    var nextProjectImgBackground = settings?.Value<IPublishedContent>("nextProjectImgBackground")?.Url() ?? null;
+    var nextProjectImgDot = settings?.Value<IPublishedContent>("nextProjectImgDot")?.Url() ?? null;
     
   var currentPageUrl = Model.Url();
     var isContactPage = currentPageUrl.Contains("/contact");
 }
 
-<section id="next-project" class="@(isContactPage ? "" : "bg-gray")">
+<section id="next-project" class="@(isContactPage ? null : "bg-gray")">
     <div class="container">
 
         <div class="images">

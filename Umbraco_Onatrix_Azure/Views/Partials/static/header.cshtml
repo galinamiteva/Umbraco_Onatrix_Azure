@@ -7,30 +7,35 @@
     var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
 
     var siteName = settings?.Value<string>("siteName") ?? "Onatrix";
-    var siteLogotype = settings?.Value<IPublishedContent>("siteLogotype")?.Url() ?? "";
-    var officeLocation = settings?.Value<string>("officeLocation") ?? "";
+    var siteLogotype = settings?.Value<IPublishedContent>("siteLogotype")?.Url() ?? null;
+    var officeLocation = settings?.Value<string>("officeLocation") ?? null;
 
-    var headerTwitterLink = settings?.Value<string>("headerTwitterLink") ?? "";
-    var headerFacebookLink = settings?.Value<string>("headerFacebookLink") ?? "";
-    var headerLinkedinLink = settings?.Value<string>("headerLinkedinLink") ?? "";
+    var headerTwitterLink = settings?.Value<string>("headerTwitterLink") ?? null;
+    var headerFacebookLink = settings?.Value<string>("headerFacebookLink") ?? null;
+    var headerLinkedinLink = settings?.Value<string>("headerLinkedinLink") ?? null;
 
-    var headerLink1 = settings?.Value<string>("headerLink1") ?? "";
-    var headerLinkText1 = settings?.Value<string>("headerLinkText1") ?? "";
-    var headerLink2 = settings?.Value<string>("headerLink2") ?? "";
-    var headerLinkText2 = settings?.Value<string>("headerLinkText2") ?? "";
-    var headerLink3 = settings?.Value<string>("headerLink3") ?? "";
-    var headerLinkText3 = settings?.Value<string>("headerLinkText3") ?? "";
-    var headerLink4 = settings?.Value<string>("headerLink4") ?? "";
-    var headerLinkText4 = settings?.Value<string>("headerLinkText4") ?? "";
+    var headerLink1 = settings?.Value<string>("headerLink1") ?? null;
+    var headerLinkText1 = settings?.Value<string>("headerLinkText1") ?? null;
+    var headerLink2 = settings?.Value<string>("headerLink2") ?? null;
+    var headerLinkText2 = settings?.Value<string>("headerLinkText2") ?? null;
+    var headerLink3 = settings?.Value<string>("headerLink3") ?? null;
+    var headerLinkText3 = settings?.Value<string>("headerLinkText3") ?? null;
+    var headerLink4 = settings?.Value<string>("headerLink4") ?? null;
+    var headerLinkText4 = settings?.Value<string>("headerLinkText4") ?? null;
 
         @* för att göra activ länken och ta bort sista /*@
     var currentPageUrl = Model.Url().TrimEnd('/');
-    var headerLink1Trimmed = headerLink1.TrimEnd('/');
-    var headerLink2Trimmed = headerLink2.TrimEnd('/');
-    var headerLink3Trimmed = headerLink3.TrimEnd('/');
-    var headerLink4Trimmed = headerLink4.TrimEnd('/');
+    var headerLink1Trimmed = headerLink1!.TrimEnd('/');
+    var headerLink2Trimmed = headerLink2!.TrimEnd('/');
+    var headerLink3Trimmed = headerLink3!.TrimEnd('/');
+    var headerLink4Trimmed = headerLink4!.TrimEnd('/');
 
 }
+@*
+      partial -static Block List social funkar inte på någon anlendning och kunde inte göra target _blank
+
+        @await Html.PartialAsync("social-media.cshtml")
+    *@
 
 <header id="header">
     <div class="background-primary">
@@ -54,11 +59,7 @@
         </div>
         
 
-     @*
-      partial -static Block List social funkar inte på någon anlendning
-
-        @await Html.PartialAsync("social-media.cshtml")
-    *@
+    
     </div>
 
     <div class="background-light">

@@ -6,10 +6,9 @@
     var rootContents = UmbracoHelper.ContentAtRoot();
     var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
 
-    var weHelpImg = settings?.Value<IPublishedContent>("weHelpImg")?.Url() ?? "";
-
-    var weHelpHeadline = settings?.Value<string>("weHelpHeadline") ?? "";
-    var weHelpText = settings?.Value<string>("weHelpText") ?? "";
+    var weHelpImg = settings?.Value<IPublishedContent>("weHelpImg")?.Url() ?? null;
+    var weHelpHeadline = settings?.Value<string>("weHelpHeadline") ?? null;
+    var weHelpText = settings?.Value<string>("weHelpText") ?? null;
     
     bool.TryParse(ViewData["error_email"]?.ToString()!, out bool error_email);
 

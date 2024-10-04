@@ -11,15 +11,15 @@
     bool.TryParse(ViewData["error_phone"]?.ToString()!, out bool error_phone);
     bool.TryParse(ViewData["error_dropdown"]?.ToString()!, out bool error_dropdown);
 
-    var backgroundImage = Model?.Value<IPublishedContent>("heroBackgroundImage")?.Url() ?? "";
-    var signatureImage = Model?.Value<IPublishedContent>("aboutSignatureImage")?.Url() ?? "";
-    var weAreImage = Model?.Value<IPublishedContent>("weAreImage")?.Url() ?? "";
-    var successImage = Model?.Value<IPublishedContent>("successImage")?.Url() ?? "";
+    var backgroundImage = Model?.Value<IPublishedContent>("heroBackgroundImage")?.Url() ?? null;
+    var signatureImage = Model?.Value<IPublishedContent>("aboutSignatureImage")?.Url() ?? null;
+    var weAreImage = Model?.Value<IPublishedContent>("weAreImage")?.Url() ?? null;
+    var successImage = Model?.Value<IPublishedContent>("successImage")?.Url() ?? null;
 
-    var projectsProject1Image = Model?.Value<IPublishedContent>("projectsProject1Image")?.Url() ?? "";
-    var projectsProject2Image = Model?.Value<IPublishedContent>("projectsProject2Image")?.Url() ?? "";
-    var projectsProject3Image = Model?.Value<IPublishedContent>("projectsProject3Image")?.Url() ?? "";
-    var projectsProject4Image = Model?.Value<IPublishedContent>("projectsProject4Image")?.Url() ?? "";
+    var projectsProject1Image = Model?.Value<IPublishedContent>("projectsProject1Image")?.Url() ?? null;
+    var projectsProject2Image = Model?.Value<IPublishedContent>("projectsProject2Image")?.Url() ?? null;
+    var projectsProject3Image = Model?.Value<IPublishedContent>("projectsProject3Image")?.Url() ?? null;
+    var projectsProject4Image = Model?.Value<IPublishedContent>("projectsProject4Image")?.Url() ?? null;
 
 
 }

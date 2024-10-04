@@ -5,10 +5,9 @@
 @{
     var rootContents = UmbracoHelper.ContentAtRoot();
     var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
-
-    var solutionAboutImg = settings?.Value<IPublishedContent>("solutionAboutImg")?.Url() ?? "";
-    var solutionAboutHeadline = settings?.Value<string>("solutionAboutHeadline") ?? "";
-    var solutionAboutText = settings?.Value<string>("solutionAboutText") ?? "";
+    var solutionAboutImg = settings?.Value<IPublishedContent>("solutionAboutImg")?.Url() ?? null;
+    var solutionAboutHeadline = settings?.Value<string>("solutionAboutHeadline") ?? null;
+    var solutionAboutText = settings?.Value<string>("solutionAboutText") ?? null;
 
  
 }

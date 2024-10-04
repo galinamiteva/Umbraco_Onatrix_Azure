@@ -8,6 +8,7 @@ public class ContactFormModel
     public string Dropdown { get; set; } = null!;
     public string Phone { get; set; } = null!;
     public DateTime Date { get; set; }
-    //public string Message { get; set; } = null!;
+    
+
 
 }

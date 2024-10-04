@@ -9,11 +9,11 @@
     var rootContents = UmbracoHelper.ContentAtRoot();
     var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
 
-    var servicesBannerBackground = settings?.Value<IPublishedContent>("servicesBannerBackground")?.Url() ?? "";     
-    var servicesBannerLinkText1 = settings?.Value<string>("servicesBannerLinkText1") ?? "";  
-    var servicesBannerLink1 = settings?.Value<string>("servicesBannerLink1") ?? "";  
+    var servicesBannerBackground = settings?.Value<IPublishedContent>("servicesBannerBackground")?.Url() ?? null;
+    var servicesBannerLinkText1 = settings?.Value<string>("servicesBannerLinkText1") ?? null;
+    var servicesBannerLink1 = settings?.Value<string>("servicesBannerLink1") ?? null;
 
-    
+
 
 }
 

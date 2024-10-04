@@ -10,16 +10,16 @@
     var rootContents = UmbracoHelper.ContentAtRoot();
     var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
 
-    var servicesBannerBackground = settings?.Value<IPublishedContent>("servicesBannerBackground")?.Url() ?? "";
-    var servicesBannerLinkText1 = settings?.Value<string>("servicesBannerLinkText1") ?? "";
-    var servicesBannerLink1 = settings?.Value<string>("servicesBannerLink1") ?? "";
+    var servicesBannerBackground = settings?.Value<IPublishedContent>("servicesBannerBackground")?.Url() ?? null;
+    var servicesBannerLinkText1 = settings?.Value<string>("servicesBannerLinkText1") ?? null;
+    var servicesBannerLink1 = settings?.Value<string>("servicesBannerLink1") ?? null;
 
-    var ourProjectsProject1Img = Model?.Value<IPublishedContent>("ourProjectsProject1Img")?.Url() ?? "";
-    var ourProjectsProject2Img = Model?.Value<IPublishedContent>("ourProjectsProject2Img")?.Url() ?? "";
-    var ourProjectsProject3Img = Model?.Value<IPublishedContent>("ourProjectsProject3Img")?.Url() ?? "";
-    var ourProjectsProject4Img = Model?.Value<IPublishedContent>("ourProjectsProject4Img")?.Url() ?? "";
-    var ourProjectsProject5Img = Model?.Value<IPublishedContent>("ourProjectsProject5Img")?.Url() ?? "";
-    var ourProjectsProject6Img = Model?.Value<IPublishedContent>("ourProjectsProject6Img")?.Url() ?? "";
+    var ourProjectsProject1Img = Model?.Value<IPublishedContent>("ourProjectsProject1Img")?.Url() ?? null;
+    var ourProjectsProject2Img = Model?.Value<IPublishedContent>("ourProjectsProject2Img")?.Url() ?? null;
+    var ourProjectsProject3Img = Model?.Value<IPublishedContent>("ourProjectsProject3Img")?.Url() ?? null;
+    var ourProjectsProject4Img = Model?.Value<IPublishedContent>("ourProjectsProject4Img")?.Url() ?? null;
+    var ourProjectsProject5Img = Model?.Value<IPublishedContent>("ourProjectsProject5Img")?.Url() ?? null;
+    var ourProjectsProject6Img = Model?.Value<IPublishedContent>("ourProjectsProject6Img")?.Url() ?? null;
 
     var currentPage = 1;
     var pageNumbers = 4;

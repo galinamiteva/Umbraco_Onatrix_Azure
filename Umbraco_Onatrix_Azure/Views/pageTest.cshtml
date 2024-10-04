@@ -9,12 +9,12 @@ ViewBag.Title = Model?.Value("pageTitle") ?? null;
 
  var rootContents = UmbracoHelper.ContentAtRoot();
  var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
-var servicesBannerLinkText1 = settings?.Value<string>("servicesBannerLinkText1") ?? "";  
+    var servicesBannerLinkText1 = settings?.Value<string>("servicesBannerLinkText1") ?? null;
 
 
  var homePage = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "homePage");
  var projects = homePage?.Children?.FirstOrDefault(x => x.ContentType.Alias == "projectsPage");
-    var ourProjectsProject1Headline = projects?.Value<string>("ourProjectsProject1Headline") ?? "";
+    var ourProjectsProject1Headline = projects?.Value<string>("ourProjectsProject1Headline") ?? null;
 
 
 }
