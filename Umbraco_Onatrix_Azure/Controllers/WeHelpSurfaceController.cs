@@ -24,7 +24,7 @@ public class WeHelpSurfaceController(
         IConfiguration configuration) : SurfaceController(umbracoContextAccessor, databaseFactory, services, appCaches, profilingLogger, publishedUrlProvider)
 {
     private readonly DataContext _dbContext = dbContext;
-    private readonly string _serviceBusConnectionString = configuration.GetConnectionString("ServiceBusConnetction");
+    private readonly string _serviceBusConnectionString = configuration.GetConnectionString("ServiceBus");
     private readonly string _queueName = "email_request";
 
     [HttpPost]

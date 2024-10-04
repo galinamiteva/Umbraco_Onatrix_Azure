@@ -16,7 +16,7 @@ namespace Umbraco_Onatrix_Azure.Controllers;
 public class QuestionSurfaceController(IUmbracoContextAccessor umbracoContextAccessor, IUmbracoDatabaseFactory databaseFactory, ServiceContext services, AppCaches appCaches, IProfilingLogger profilingLogger, IPublishedUrlProvider publishedUrlProvider, DataContext dbContext, IConfiguration configuration) : SurfaceController(umbracoContextAccessor, databaseFactory, services, appCaches, profilingLogger, publishedUrlProvider)
 {
     private readonly DataContext _dbContext = dbContext;
-    private readonly string _serviceBusConnectionString = configuration.GetConnectionString("ServiceBusConnetction");
+    private readonly string _serviceBusConnectionString = configuration.GetConnectionString("ServiceBus");
     private readonly string _queueName = "email_request";
 
     [HttpPost]
