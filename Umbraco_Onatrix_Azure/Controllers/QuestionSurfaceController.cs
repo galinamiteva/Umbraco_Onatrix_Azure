@@ -48,7 +48,7 @@ public class QuestionSurfaceController(IUmbracoContextAccessor umbracoContextAcc
         _dbContext.QuestionModels.Add(questionEntry);
         _dbContext.SaveChanges();
 
-        // Skicka e-postbekräftelse
+        
         await SendConfirmationEmailAsync(form.Email);
 
        

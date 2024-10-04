@@ -46,7 +46,7 @@ public class WeHelpSurfaceController(
         _dbContext.WeHelpModels.Add(weHelpEntry);
         _dbContext.SaveChanges();
 
-        // Skicka e-postbekräftelse
+        
         await SendConfirmationEmailAsync(form.Email);
 
         TempData["success"] = "submitted successfully.";
